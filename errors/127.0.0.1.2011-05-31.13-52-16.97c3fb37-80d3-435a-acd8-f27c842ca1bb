@@ -1,0 +1,765 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p4
+sS'code'
+p5
+S'def index():\n    #Realiza a consulta com ordena\xc3\xa7\xc3\xa3o:\n    orderBy = db.post.id\n    query = db.post.ALL\n    consulta = db(query).select()\n    \n    return dict(consulta = consulta)\n\n  \ndef new():\n    postform = SQLFORM(db.post)\n    if postform.accepts(request.vars,session):\n       redirect(URL(r=request, f="view", args=postform.vars.id))\n    return dict(postform=postform)\n    \n\ndef edit():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    editform = SQLFORM(db.post, post, deletable=True)\n    if editform.accepts(request.vars, session):\n        redirect(URL(r=request,f = "view",args=postid))\n    return dict(editform=editform, post=post)\n\ndef post_select():\n    f,v=request.args(0),request.args(1)\n    try: query=f and db.post[f]==v or db.post\n    except: redirect(URL(\'error\'))\n    rows=db(query)(db.post.ALL).select()\n    return dict(rows=rows)\n    \ndef view():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    db.comment.post.default = postid\n    commentform = SQLFORM(db.comment)\n    if commentform.accepts(request.vars, session):\n        redirect(URL(r=request, f = "view", args=postid))\n    return dict(post=post, commentform=commentform)\n        \n    \nresponse._vars=response._caller(index)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__getslice__'
+p11
+S"<method-wrapper '__getslice__' of exceptions.SyntaxError object>"
+p12
+sS'text'
+p13
+S'None'
+p14
+sS'__str__'
+p15
+S"<method-wrapper '__str__' of exceptions.SyntaxError object>"
+p16
+sS'__reduce__'
+p17
+S'<built-in method __reduce__ of exceptions.SyntaxError object>'
+p18
+sS'__dict__'
+p19
+S'{}'
+p20
+sS'__sizeof__'
+p21
+S'<built-in method __sizeof__ of exceptions.SyntaxError object>'
+p22
+sS'__init__'
+p23
+S"<method-wrapper '__init__' of exceptions.SyntaxError object>"
+p24
+sS'__setattr__'
+p25
+S"<method-wrapper '__setattr__' of exceptions.SyntaxError object>"
+p26
+sS'__reduce_ex__'
+p27
+S'<built-in method __reduce_ex__ of exceptions.SyntaxError object>'
+p28
+sS'__new__'
+p29
+S'<built-in method __new__ of type object>'
+p30
+sS'__format__'
+p31
+S'<built-in method __format__ of exceptions.SyntaxError object>'
+p32
+sS'__class__'
+p33
+S"<type 'exceptions.SyntaxError'>"
+p34
+sS'filename'
+p35
+S'None'
+p36
+sS'lineno'
+p37
+S'None'
+p38
+sS'msg'
+p39
+S"'Set: no tables selected'"
+p40
+sS'__doc__'
+p41
+S"'Invalid syntax.'"
+p42
+sS'__getitem__'
+p43
+S"<method-wrapper '__getitem__' of exceptions.SyntaxError object>"
+p44
+sS'__setstate__'
+p45
+S'<built-in method __setstate__ of exceptions.SyntaxError object>'
+p46
+sS'__getattribute__'
+p47
+S"<method-wrapper '__getattribute__' of exceptions.SyntaxError object>"
+p48
+sS'print_file_and_line'
+p49
+S'None'
+p50
+sS'args'
+p51
+S"('Set: no tables selected',)"
+p52
+sS'__subclasshook__'
+p53
+S'<built-in method __subclasshook__ of type object>'
+p54
+sS'offset'
+p55
+S'None'
+p56
+sS'__unicode__'
+p57
+S'<built-in method __unicode__ of exceptions.SyntaxError object>'
+p58
+sS'__delattr__'
+p59
+S"<method-wrapper '__delattr__' of exceptions.SyntaxError object>"
+p60
+sS'__repr__'
+p61
+S"<method-wrapper '__repr__' of exceptions.SyntaxError object>"
+p62
+sS'__hash__'
+p63
+S"<method-wrapper '__hash__' of exceptions.SyntaxError object>"
+p64
+ssS'evalue'
+p65
+S'Set: no tables selected'
+p66
+sS'request'
+p67
+(dp68
+S'function'
+p69
+S"'index'"
+p70
+sS'body'
+p71
+S'<cStringIO.StringO object>'
+p72
+sS'wsgi'
+p73
+S"<Storage {'start_response': <function <lambda> a...', 'PATH_INFO': '/E_Learning/posts/index.html'}}>"
+p74
+sS'extension'
+p75
+S"'html'"
+p76
+sS'vars'
+p77
+S'<Storage {}>'
+p78
+sS'cid'
+p79
+S'None'
+p80
+sS'url'
+p81
+S'<gluon.html.XML object>'
+p82
+sS'raw_extension'
+p83
+S"'html'"
+p84
+sg51
+S'[]'
+p85
+sS'controller'
+p86
+S"'posts'"
+p87
+sS'cookies'
+p88
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-...'127.0.0.1-23dad7cb-b091-4d73-a5e8-c79af16de874'>"
+p89
+sS'application'
+p90
+S"'E_Learning'"
+p91
+sS'ajax'
+p92
+S'False'
+p93
+sS'client'
+p94
+S"'127.0.0.1'"
+p95
+sS'env'
+p96
+S"<Storage {'wsgi_multithread': True, 'http_accept...2', 'path_info': '/E_Learning/posts/index.html'}>"
+p97
+sS'raw_args'
+p98
+S'None'
+p99
+sS'get_vars'
+p100
+S'<Storage {}>'
+p101
+sS'folder'
+p102
+S"'/home/franzejr/web2py/applications/E_Learning/'"
+p103
+sS'now'
+p104
+S'datetime.datetime(2011, 5, 31, 13, 52, 16, 969305)'
+p105
+sS'post_vars'
+p106
+S'<Storage {}>'
+p107
+ssS'frames'
+p108
+(lp109
+(dp110
+S'file'
+p111
+S'/home/franzejr/web2py/gluon/restricted.py'
+p112
+sS'dump'
+p113
+(dp114
+S'environment'
+p115
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p116
+sS'ccode'
+p117
+S'<code object <module> at 0x9f17e78, file "/home/...cations/E_Learning/controllers/posts.py", line 1>'
+p118
+ssS'lnum'
+p119
+I188
+sS'lines'
+p120
+(dp121
+I192
+S'        # XXX Show exception in Wing IDE if running in debugger'
+p122
+sI183
+S'        if type(code) == types.CodeType:'
+p123
+sI184
+S'            ccode = code'
+p124
+sI185
+S'        else:'
+p125
+sI186
+S'            ccode = compile2(code,layer)'
+p126
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p127
+sI189
+S'    except HTTP:'
+p128
+sI190
+S'        raise'
+p129
+sI191
+S'    except Exception:'
+p130
+ssS'call'
+p131
+S"(code='def index():\\n    #Realiza a consulta com ordena\\xc3...    \\n    \\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}, layer='/home/franzejr/web2py/applications/E_Learning/controllers/posts.py')"
+p132
+sS'func'
+p133
+S'restricted'
+p134
+sa(dp135
+g111
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p136
+sg113
+(dp137
+sg119
+I42
+sg120
+(dp138
+I32
+S'def view():'
+p139
+sI33
+S'    postid = request.args(0)'
+p140
+sI34
+S'    post = db(db.post.id == postid).select()[0]'
+p141
+sI35
+S'    db.comment.post.default = postid'
+p142
+sI36
+S'    commentform = SQLFORM(db.comment)'
+p143
+sI37
+S'    if commentform.accepts(request.vars, session):'
+p144
+sI38
+S'        redirect(URL(r=request, f = "view", args=postid))'
+p145
+sI39
+S'    return dict(post=post, commentform=commentform)'
+p146
+sI40
+S''
+sI41
+S''
+ssg131
+S'()'
+p147
+sg133
+S'<module>'
+p148
+sa(dp149
+g111
+S'/home/franzejr/web2py/gluon/globals.py'
+p150
+sg113
+(dp151
+S'self'
+p152
+S'undefined'
+p153
+sS'f'
+S'<function index>'
+p154
+ssg119
+I95
+sg120
+(dp155
+I96
+S'        self._view_environment = None'
+p156
+sI97
+S'        self._custom_commit = None'
+p157
+sI98
+S'        self._custom_rollback = None'
+p158
+sI99
+S''
+sI90
+S"        self.flash = ''           # used by the default view layout"
+p159
+sI91
+S'        self.meta = Storage()     # used by web2py_ajax.html'
+p160
+sI92
+S'        self.menu = []            # used by the default view layout'
+p161
+sI93
+S'        self.files = []           # used by web2py_ajax.html'
+p162
+sI94
+S'        self._vars = None'
+p163
+sI95
+S'        self._caller = lambda f: f()'
+p164
+ssg131
+S'(f=<function index>)'
+p165
+sg133
+S'<lambda>'
+p166
+sa(dp167
+g111
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p168
+sg113
+(dp169
+S'global db'
+p170
+S"<DAL {'auth_permission': <Table {'ALL': <gluon.d...l.Field object at 0xa061dac>}>, '_pool_size': 0}>"
+p171
+sS'consulta'
+p172
+g153
+sS').select'
+p173
+g153
+sS'query'
+p174
+S'<gluon.dal.SQLALL object>'
+p175
+ssg119
+I5
+sg120
+(dp176
+I2
+S'    #Realiza a consulta com ordena\xc3\xa7\xc3\xa3o:'
+p177
+sI3
+S'    orderBy = db.post.id'
+p178
+sI4
+S'    query = db.post.ALL'
+p179
+sI5
+S'    consulta = db(query).select()'
+p180
+sI6
+S''
+sI7
+S'    return dict(consulta = consulta)'
+p181
+sI8
+S''
+sI9
+S''
+sI10
+S'def new():'
+p182
+sI11
+S'    postform = SQLFORM(db.post)'
+p183
+ssg131
+S'()'
+p184
+sg133
+S'index'
+p185
+sa(dp186
+g111
+S'/home/franzejr/web2py/gluon/dal.py'
+p187
+sg113
+(dp188
+S'self.query'
+p189
+S'<gluon.dal.SQLALL object>'
+p190
+sS'fields'
+p191
+S'()'
+p192
+sS'self'
+p193
+S'<gluon.dal.Set object>'
+p194
+sS'self.db._adapter.select'
+p195
+S'<bound method SQLiteAdapter.select of <gluon.dal.SQLiteAdapter object>>'
+p196
+sS'self.db._adapter'
+p197
+S'<gluon.dal.SQLiteAdapter object>'
+p198
+sS'attributes'
+p199
+g20
+sS'self.db'
+p200
+S"<DAL {'auth_permission': <Table {'ALL': <gluon.d...l.Field object at 0xa061dac>}>, '_pool_size': 0}>"
+p201
+ssg119
+I4507
+sg120
+(dp202
+I4502
+S''
+sI4503
+S'    def count(self):'
+p203
+sI4504
+S'        return self.db._adapter.count(self.query)'
+p204
+sI4505
+S''
+sI4506
+S'    def select(self, *fields, **attributes):'
+p205
+sI4507
+S'        return self.db._adapter.select(self.query,fields,attributes)'
+p206
+sI4508
+S''
+sI4509
+S'    def delete(self):'
+p207
+sI4510
+S'        tablename=self.db._adapter.get_table(self.query)'
+p208
+sI4511
+S'        self.delete_uploaded_files()'
+p209
+ssg131
+S'(self=<gluon.dal.Set object>, *fields=(), **attributes={})'
+p210
+sg133
+S'select'
+p211
+sa(dp212
+g111
+S'/home/franzejr/web2py/gluon/dal.py'
+p213
+sg113
+(dp214
+S'self._select'
+p215
+S'<bound method SQLiteAdapter._select of <gluon.dal.SQLiteAdapter object>>'
+p216
+sS'fields'
+p217
+S'()'
+p218
+sS'self'
+p219
+S'<gluon.dal.SQLiteAdapter object>'
+p220
+sS'sql'
+p221
+g153
+sS'query'
+p222
+S'<gluon.dal.SQLALL object>'
+p223
+sS'attributes'
+p224
+g20
+ssg119
+I996
+sg120
+(dp225
+I992
+S'        """'
+p226
+sI993
+S'        def response(sql):'
+p227
+sI994
+S'            self.execute(sql)'
+p228
+sI995
+S'            return self.cursor.fetchall()'
+p229
+sI996
+S'        sql = self._select(query,fields,attributes)'
+p230
+sI997
+S"        if attributes.get('cache', None):"
+p231
+sI998
+S"            (cache_model, time_expire) = attributes['cache']"
+p232
+sI999
+S"            del attributes['cache']"
+p233
+sI1000
+S"            key = self.uri + '/' + sql"
+p234
+sI991
+S'        Always returns a Rows object, even if it may be empty'
+p235
+ssg131
+S'(self=<gluon.dal.SQLiteAdapter object>, query=<gluon.dal.SQLALL object>, fields=(), attributes={})'
+p236
+sg133
+g211
+sa(dp237
+g111
+S'/home/franzejr/web2py/gluon/dal.py'
+p238
+sg113
+(dp239
+S'builtinSyntaxError'
+p240
+S"<type 'exceptions.SyntaxError'>"
+p241
+ssg119
+I925
+sg120
+(dp242
+I928
+S'        if query:'
+p243
+sI929
+S"            sql_w = ' WHERE ' + self.expand(query)"
+p244
+sI920
+S'                    field = self.db[tn][fn]'
+p245
+sI921
+S'                for tablename in self.tables(field):'
+p246
+sI922
+S'                    if not tablename in tablenames:'
+p247
+sI923
+S'                        tablenames.append(tablename)'
+p248
+sI924
+S'        if len(tablenames) < 1:'
+p249
+sI925
+S"            raise SyntaxError, 'Set: no tables selected'"
+p250
+sI926
+S"        sql_f = ', '.join([self.expand(f) for f in fields])"
+p251
+sI927
+S"        self._colnames = [c.strip() for c in sql_f.split(', ')]"
+p252
+ssg131
+S'(self=<gluon.dal.SQLiteAdapter object>, query=<gluon.dal.SQLALL object>, fields=[], attributes={})'
+p253
+sg133
+S'_select'
+p254
+sasS'pyver'
+p255
+S'Python 2.7.1+: /usr/bin/python'
+p256
+sS'session'
+p257
+(dp258
+S'_formkey[posts_create]'
+p259
+S"'7e0acebb-095f-4c60-96c7-757782d01210'"
+p260
+sS'_formkey[comment_create]'
+p261
+S"'be81dccd-d826-4dc0-add1-0266a6a1eabc'"
+p262
+sS'_formkey[post_1]'
+p263
+S"'cfff4450-ab45-4289-9e45-952c61bd2c7b'"
+p264
+sS'auth'
+p265
+S'None'
+p266
+sS'_formkey[post_create]'
+p267
+S"'d0b344dd-5659-4fb2-a96e-3f7514051e7c'"
+p268
+ssS'etype'
+p269
+S"<type 'exceptions.SyntaxError'>"
+p270
+sS'date'
+p271
+S'Tue May 31 13:52:16 2011'
+p272
+sS'response'
+p273
+(dp274
+S'status'
+p275
+S'200'
+p276
+sg71
+S'<cStringIO.StringO object>'
+p277
+sg88
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'>"
+p278
+sS'_vars'
+p279
+S'None'
+p280
+sS'title'
+p281
+S"'E_Learning'"
+p282
+sS'session_file'
+p283
+S"<open file '/home/franzejr/web2py/applications/E...da20020-d08d-46ab-8fa8-5484396a44f2', mode 'rb+'>"
+p284
+sS'flash'
+p285
+S"''"
+p286
+sS'_custom_rollback'
+p287
+S'None'
+p288
+sS'session_id'
+p289
+S"'127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p290
+sS'headers'
+p291
+S"<Storage {'Expires': 'Tue, 31 May 2011 16:52:16 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p292
+sS'meta'
+p293
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p294
+sS'session_filename'
+p295
+S"'/home/franzejr/web2py/applications/E_Learning/se...ns/127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p296
+sS'postprocessing'
+p297
+S'[]'
+p298
+sS'menu'
+p299
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object>, []), (<lazyT 'This App'>, False, <gluon.html.XML object>, [(<lazyT 'Controller'>, False, <gluon.html.XML object>), (<lazyT 'View'>, False, <gluon.html.XML object>), (<lazyT 'Layout'>, False, <gluon.html.XML object>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object>), (<lazyT 'DB Model'>, False, <gluon.html.XML object>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object>), (<lazyT 'Database'>, False, <gluon.html.XML object>), (<lazyT 'Errors'>, False, <gluon.html.XML object>), (<lazyT 'About'>, False, <gluon.html.XML object>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p300
+sS'_view_environment'
+p301
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p302
+sS'subtitle'
+p303
+S"<lazyT 'customize me!'>"
+p304
+sS'session_id_name'
+p305
+S"'session_id_E_Learning'"
+p306
+sS'_custom_commit'
+p307
+S'None'
+p308
+sS'_caller'
+p309
+S'<function <lambda>>'
+p310
+sS'files'
+p311
+S'[]'
+p312
+sS'view'
+p313
+S"'posts/index.html'"
+p314
+ssS'locals'
+p315
+(dp316
+S'fields'
+p317
+S'[]'
+p318
+sS'self'
+p319
+S'<gluon.dal.SQLiteAdapter object>'
+p320
+sS'new_fields'
+p321
+S'[]'
+p322
+sS'tablenames'
+p323
+S'[]'
+p324
+sS'query'
+p325
+S'<gluon.dal.SQLALL object>'
+p326
+sS'attributes'
+p327
+g20
+sssS'traceback'
+p328
+S'Traceback (most recent call last):\n  File "/home/franzejr/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 42, in <module>\n  File "/home/franzejr/web2py/gluon/globals.py", line 95, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 5, in index\n    consulta = db(query).select()\n  File "/home/franzejr/web2py/gluon/dal.py", line 4507, in select\n    return self.db._adapter.select(self.query,fields,attributes)\n  File "/home/franzejr/web2py/gluon/dal.py", line 996, in select\n    sql = self._select(query,fields,attributes)\n  File "/home/franzejr/web2py/gluon/dal.py", line 925, in _select\n    raise SyntaxError, \'Set: no tables selected\'\nSyntaxError: Set: no tables selected\n'
+p329
+s.

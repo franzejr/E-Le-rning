@@ -54,3 +54,41 @@ CREATE TABLE categories(
     name CHAR(512)
 );
 success!
+timestamp: 2011-05-31T12:20:01.067564
+CREATE TABLE users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512)
+);
+success!
+timestamp: 2011-05-31T12:22:46.253637
+CREATE TABLE posts(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body TEXT
+);
+success!
+timestamp: 2011-05-31T12:44:50.045687
+CREATE TABLE post(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    title CHAR(512),
+    body TEXT,
+    dateline TIMESTAMP
+);
+success!
+timestamp: 2011-05-31T12:44:50.152909
+CREATE TABLE comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    post INTEGER REFERENCES post(id) ON DELETE CASCADE,
+    name CHAR(512),
+    email CHAR(512),
+    commentbody TEXT,
+    dateline TIMESTAMP
+);
+success!
+timestamp: 2011-05-31T12:44:50.263741
+CREATE TABLE category(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512)
+);
+success!

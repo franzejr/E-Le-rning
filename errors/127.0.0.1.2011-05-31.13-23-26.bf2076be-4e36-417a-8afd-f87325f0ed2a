@@ -1,0 +1,20 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p4
+sS'code'
+p5
+S'def index():\n     return dict(message=T(\'Hello World\'))\n  \ndef new():\n    postform = SQLFORM(db.posts)\n    if postform.accepts(request.vars,session):\n       redirect(URL(r=request, f="view", args=postform.vars.id))\n    return dict(postform=postform)\n    \n\ndef edit():\n    postid = request.args(0)\n    post = db(db.posts.id == postid).select()[0]\n    editform = SQLFORM(db.posts, posts, deletable=True)\n    if editform.accepts(request.vars, session):\n        redirect(URL(r=request,f = "view",args=postid))\n    return dict(editform=editform, post=post)\n    \ndef view():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    db.comment.post.default = postid\n    commentform = SQLFORM(db.comment)\n    if commentform.accepts(request.vars, session):\n        redirect(URL(r=request, f = "view", args=postid))\n    return dict(post=post, commentform=commentform)\n        \n    \nresponse._vars=response._caller(new)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+sS'traceback'
+p9
+S'Traceback (most recent call last):\n  File "/home/franzejr/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 29, in <module>\n  File "/home/franzejr/web2py/gluon/globals.py", line 95, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 5, in new\n    postform = SQLFORM(db.posts)\n  File "/home/franzejr/web2py/gluon/dal.py", line 3451, in __getattr__\n    return dict.__getitem__(self,key)\nKeyError: \'posts\'\n'
+p10
+s.

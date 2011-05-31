@@ -76,15 +76,26 @@ crud.settings.auth = None                      # =auth to enforce authorization 
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
-db.define_table('categories',
-                Field('name')
-                )
 
+db.define_table('post',
+    Field('user', db.auth_user, readable=False, writable=False),
+    Field('title'),
+    Field('body', 'text'),
+    Field('dateline', 'datetime', default=request.now,readable=False, writable=False),
+    
+)
 
-db.define_table('posts', 
-                Field('title', requires=IS_NOT_EMPTY()),
-                Field('body','text', requires=IS_NOT_EMPTY()),
-                Field('category', 'categories', ),
-                Field('date', 'datetime', default=request.now),
-                Field('author', 'auth_user')
-                )
+db.post.id.readable=False
+db.post.id.writable=False
+
+db.define_table('comment',
+    Field('post', db.post, readable=False, writable=False),
+    Field('name', requires=IS_NOT_EMPTY(error_message="Please enter your name") ),
+    Field('email'),
+    Field('commentbody', 'text', requires=IS_NOT_EMPTY(error_message="Please enter your comment.")),
+    Field('dateline',  'datetime', default=request.now, readable=False, writable=False),
+)
+
+db.define_table('category',
+    Field('title')
+)

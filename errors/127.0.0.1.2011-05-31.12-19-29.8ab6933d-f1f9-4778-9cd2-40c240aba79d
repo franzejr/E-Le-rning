@@ -1,0 +1,582 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/franzejr/web2py/applications/E_Learning/models/db.py'
+p4
+sS'code'
+p5
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This scaffolding model makes your app work on Google App Engine too\n#########################################################################\n\nif request.env.web2py_runtime_gae:            # if running on Google App Engine\n    db = DAL(\'gae://mynamespace\')             # connect to Google BigTable\n    session.connect(request, response, db = db) # and store sessions and tickets there\n    ### or use the following lines to store sessions in Memcache\n    # from gluon.contrib.memdb import MEMDB\n    # from google.appengine.api.memcache import Client\n    # session.connect(request, response, db = MEMDB(Client()))\nelse:                                         # else use a normal relational database\n    db = DAL(\'sqlite://storage.sqlite\')       # if not, use SQLite or other DB\n## if no need for session\n# session.forget()\n\n#########################################################################\n## Here is sample code if you need for\n## - email capabilities\n## - authentication (registration, login, logout, ... )\n## - authorization (role based authorization)\n## - services (xml, csv, json, xmlrpc, jsonrpc, amf, rss)\n## - crud actions\n## (more options discussed in gluon/tools.py)\n#########################################################################\n\nfrom gluon.tools import *\nmail = Mail()                                  # mailer\nauth = Auth(globals(),db)                      # authentication/authorization\ncrud = Crud(globals(),db)                      # for CRUD helpers using auth\nservice = Service(globals())                   # for json, xml, jsonrpc, xmlrpc, amfrpc\nplugins = PluginManager()\n\nmail.settings.server = \'logging\' or \'smtp.gmail.com:587\'  # your SMTP server\nmail.settings.sender = \'you@gmail.com\'         # your email\nmail.settings.login = \'username:password\'      # your credentials or None\n\nauth.settings.hmac_key = \'sha512:a667c7a1-8129-45c6-a7c5-397d1085dabe\'   # before define_tables()\nauth.define_tables()                           # creates all needed tables\nauth.settings.mailer = mail                    # for user email verification\nauth.settings.registration_requires_verification = False\nauth.settings.registration_requires_approval = False\nauth.messages.verify_email = \'Click on the link http://\'+request.env.http_host+URL(r=request,c=\'default\',f=\'user\',args=[\'verify_email\'])+\'/%(key)s to verify your email\'\nauth.settings.reset_password_requires_verification = True\nauth.messages.reset_password = \'Click on the link http://\'+request.env.http_host+URL(r=request,c=\'default\',f=\'user\',args=[\'reset_password\'])+\'/%(key)s to reset your password\'\n\n#########################################################################\n## If you need to use OpenID, Facebook, MySpace, Twitter, Linkedin, etc.\n## register with janrain.com, uncomment and customize following\n# from gluon.contrib.login_methods.rpx_account import RPXAccount\n# auth.settings.actions_disabled=[\'register\',\'change_password\',\'request_reset_password\']\n# auth.settings.login_form = RPXAccount(request, api_key=\'...\',domain=\'...\',\n#    url = "http://localhost:8000/%s/default/user/login" % request.application)\n## other login methods are in gluon/contrib/login_methods\n#########################################################################\n\ncrud.settings.auth = None                      # =auth to enforce authorization on crud\n\n#########################################################################\n## Define your tables below (or better in another model file) for example\n##\n## >>> db.define_table(\'mytable\',Field(\'myfield\',\'string\'))\n##\n## Fields can be \'string\',\'text\',\'password\',\'integer\',\'double\',\'boolean\'\n##       \'date\',\'time\',\'datetime\',\'blob\',\'upload\', \'reference TABLENAME\'\n## There is an implicit \'id integer autoincrement\' field\n## Consult manual for more options, validators, etc.\n##\n## More API examples for controllers:\n##\n## >>> db.mytable.insert(myfield=\'value\')\n## >>> rows=db(db.mytable.myfield==\'value\').select(db.mytable.ALL)\n## >>> for row in rows: print row.id, row.myfield\n#########################################################################\n\ndb.define_table(\'categories\',\n                Field(\'name\')\n                )\n\n\ndb.define_table(\'posts\', \n                Field(\'title\', requires=IS_NOT_EMPTY()),\n                Field(\'body\',\'text\', requires=IS_NOT_EMPTY()),\n                Field(\'category\', \'categories\', ),\n                Field(\'date\', \'date\', default=request.now),\n                Field(\'author\', \'users\')\n                )\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__getslice__'
+p11
+S"<method-wrapper '__getslice__' of exceptions.SyntaxError object>"
+p12
+sS'text'
+p13
+S'None'
+p14
+sS'__str__'
+p15
+S"<method-wrapper '__str__' of exceptions.SyntaxError object>"
+p16
+sS'__reduce__'
+p17
+S'<built-in method __reduce__ of exceptions.SyntaxError object>'
+p18
+sS'__dict__'
+p19
+S'{}'
+p20
+sS'__sizeof__'
+p21
+S'<built-in method __sizeof__ of exceptions.SyntaxError object>'
+p22
+sS'__init__'
+p23
+S"<method-wrapper '__init__' of exceptions.SyntaxError object>"
+p24
+sS'__setattr__'
+p25
+S"<method-wrapper '__setattr__' of exceptions.SyntaxError object>"
+p26
+sS'__reduce_ex__'
+p27
+S'<built-in method __reduce_ex__ of exceptions.SyntaxError object>'
+p28
+sS'__new__'
+p29
+S'<built-in method __new__ of type object>'
+p30
+sS'__format__'
+p31
+S'<built-in method __format__ of exceptions.SyntaxError object>'
+p32
+sS'__class__'
+p33
+S"<type 'exceptions.SyntaxError'>"
+p34
+sS'filename'
+p35
+S'None'
+p36
+sS'lineno'
+p37
+S'None'
+p38
+sS'msg'
+p39
+S"'Field: unknown field type: categories for category'"
+p40
+sS'__doc__'
+p41
+S"'Invalid syntax.'"
+p42
+sS'__getitem__'
+p43
+S"<method-wrapper '__getitem__' of exceptions.SyntaxError object>"
+p44
+sS'__setstate__'
+p45
+S'<built-in method __setstate__ of exceptions.SyntaxError object>'
+p46
+sS'__getattribute__'
+p47
+S"<method-wrapper '__getattribute__' of exceptions.SyntaxError object>"
+p48
+sS'print_file_and_line'
+p49
+S'None'
+p50
+sS'args'
+p51
+S"('Field: unknown field type: categories for category',)"
+p52
+sS'__subclasshook__'
+p53
+S'<built-in method __subclasshook__ of type object>'
+p54
+sS'offset'
+p55
+S'None'
+p56
+sS'__unicode__'
+p57
+S'<built-in method __unicode__ of exceptions.SyntaxError object>'
+p58
+sS'__delattr__'
+p59
+S"<method-wrapper '__delattr__' of exceptions.SyntaxError object>"
+p60
+sS'__repr__'
+p61
+S"<method-wrapper '__repr__' of exceptions.SyntaxError object>"
+p62
+sS'__hash__'
+p63
+S"<method-wrapper '__hash__' of exceptions.SyntaxError object>"
+p64
+ssS'evalue'
+p65
+S'Field: unknown field type: categories for category'
+p66
+sS'request'
+p67
+(dp68
+S'function'
+p69
+S"'index'"
+p70
+sS'body'
+p71
+S'<cStringIO.StringO object>'
+p72
+sS'wsgi'
+p73
+S"<Storage {'start_response': <function <lambda> a...: 'gzip, deflate', 'PATH_INFO': '/E_Learning/'}}>"
+p74
+sS'extension'
+p75
+S"'html'"
+p76
+sS'vars'
+p77
+S'<Storage {}>'
+p78
+sS'cid'
+p79
+S'None'
+p80
+sS'url'
+p81
+S'<gluon.html.XML object>'
+p82
+sS'raw_extension'
+p83
+S'None'
+p84
+sg51
+S'[]'
+p85
+sS'controller'
+p86
+S"'default'"
+p87
+sS'cookies'
+p88
+S"<SimpleCookie: session_id_admin='127.0.0.1-c9636...'127.0.0.1-23dad7cb-b091-4d73-a5e8-c79af16de874'>"
+p89
+sS'application'
+p90
+S"'E_Learning'"
+p91
+sS'ajax'
+p92
+S'False'
+p93
+sS'client'
+p94
+S"'127.0.0.1'"
+p95
+sS'env'
+p96
+S"<Storage {'wsgi_multithread': True, 'http_accept...ote_port': '59906', 'path_info': '/E_Learning/'}>"
+p97
+sS'raw_args'
+p98
+S'None'
+p99
+sS'get_vars'
+p100
+S'<Storage {}>'
+p101
+sS'folder'
+p102
+S"'/home/franzejr/web2py/applications/E_Learning/'"
+p103
+sS'now'
+p104
+S'datetime.datetime(2011, 5, 31, 12, 19, 29, 89295)'
+p105
+sS'post_vars'
+p106
+S'<Storage {}>'
+p107
+ssS'frames'
+p108
+(lp109
+(dp110
+S'file'
+p111
+S'/home/franzejr/web2py/gluon/restricted.py'
+p112
+sS'dump'
+p113
+(dp114
+S'environment'
+p115
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p116
+sS'ccode'
+p117
+S'<code object <module> at 0x9e82650, file "/home/...py/applications/E_Learning/models/db.py", line 8>'
+p118
+ssS'lnum'
+p119
+I188
+sS'lines'
+p120
+(dp121
+I192
+S'        # XXX Show exception in Wing IDE if running in debugger'
+p122
+sI183
+S'        if type(code) == types.CodeType:'
+p123
+sI184
+S'            ccode = code'
+p124
+sI185
+S'        else:'
+p125
+sI186
+S'            ccode = compile2(code,layer)'
+p126
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p127
+sI189
+S'    except HTTP:'
+p128
+sI190
+S'        raise'
+p129
+sI191
+S'    except Exception:'
+p130
+ssS'call'
+p131
+S'(code="# -*- coding: utf-8 -*-\\n# this file is released ...      Field(\'author\', \'users\')\\n                )\\n", environment={\'A\': <class \'gluon.html.A\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, \'CLEANUP\': <class \'gluon.validators.CLEANUP\'>, \'CODE\': <class \'gluon.html.CODE\'>, \'CRYPT\': <class \'gluon.validators.CRYPT\'>, ...}, layer=\'/home/franzejr/web2py/applications/E_Learning/models/db.py\')'
+p132
+sS'func'
+p133
+S'restricted'
+p134
+sa(dp135
+g111
+S'/home/franzejr/web2py/applications/E_Learning/models/db.py'
+p136
+sg113
+(dp137
+S'Field'
+p138
+S"<class 'gluon.dal.Field'>"
+p139
+ssg119
+I89
+sg120
+(dp140
+I81
+S'                )'
+p141
+sI82
+S''
+sI83
+S''
+sI84
+S"db.define_table('posts',"
+p142
+sI85
+S"                Field('title', requires=IS_NOT_EMPTY()),"
+p143
+sI86
+S"                Field('body','text', requires=IS_NOT_EMPTY()),"
+p144
+sI87
+S"                Field('category', 'categories', ),"
+p145
+sI88
+S"                Field('date', 'date', default=request.now),"
+p146
+sI89
+S"                Field('author', 'users')"
+p147
+sI90
+S'                )'
+p148
+ssg131
+S'()'
+p149
+sg133
+S'<module>'
+p150
+sa(dp151
+g111
+S'/home/franzejr/web2py/gluon/dal.py'
+p152
+sg113
+(dp153
+S'polymodel'
+p154
+S'None'
+p155
+ssg119
+I3431
+sg120
+(dp156
+I3426
+S"        if migrate or self._uri.startswith('gae'):"
+p157
+sI3427
+S'            try:'
+p158
+sI3428
+S'                sql_locker.acquire()'
+p159
+sI3429
+S'                self._adapter.create_table(t,migrate=migrate,'
+p160
+sI3430
+S'                                           fake_migrate=fake_migrate,'
+p161
+sI3431
+S'                                           polymodel=polymodel)'
+p162
+sI3432
+S'            finally:'
+p163
+sI3433
+S'                sql_locker.release()'
+p164
+sI3434
+S'        else:'
+p165
+sI3435
+S'            t._dbt = None'
+p166
+ssg131
+S"(self=<DAL {'auth_permission': <Table {'ALL': <gluon.d..., 'id': <gluon.dal.Field object at 0x9f2a24c>}>}>, tablename='posts', *fields=(<gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>, <gluon.dal.Field object>), **args={})"
+p167
+sg133
+S'define_table'
+p168
+sa(dp169
+g111
+S'/home/franzejr/web2py/gluon/dal.py'
+p170
+sg113
+(dp171
+S'field.type'
+p172
+S"'categories'"
+p173
+sS'field'
+p174
+S'<gluon.dal.Field object>'
+p175
+sS'field.name'
+p176
+S"'category'"
+p177
+ssg119
+I449
+sg120
+(dp178
+I448
+S"                raise SyntaxError, 'Field: unknown field type: %s for %s' % \\"
+p179
+sI449
+S'                    (field.type, field.name)'
+p180
+sI450
+S'            else:'
+p181
+sI451
+S'                ftype = self.types[field.type]\\'
+p182
+sI452
+S'                     % dict(length=field.length)'
+p183
+sI453
+S"            if not field.type.startswith('id') and not field.type.startswith('reference'):"
+p184
+sI444
+S"                precision, scale = [int(x) for x in field.type[8:-1].split(',')]"
+p185
+sI445
+S'                ftype = self.types[field.type[:7]] % \\'
+p186
+sI446
+S'                    dict(precision=precision,scale=scale)'
+p187
+sI447
+S'            elif not field.type in self.types:'
+p188
+ssg131
+S"(self=<gluon.dal.SQLiteAdapter object>, table=<Table {'body': <gluon.dal.Field object at 0x9f2...c>, 'id': <gluon.dal.Field object at 0x9d52aac>}>, migrate=True, fake_migrate=False, polymodel=None)"
+p189
+sg133
+S'create_table'
+p190
+sasS'pyver'
+p191
+S'Python 2.7.1+: /usr/bin/python'
+p192
+sS'session'
+p193
+(dp194
+S'auth'
+p195
+S'None'
+p196
+ssS'etype'
+p197
+S"<type 'exceptions.SyntaxError'>"
+p198
+sS'date'
+p199
+S'Tue May 31 12:19:29 2011'
+p200
+sS'response'
+p201
+(dp202
+S'status'
+p203
+S'200'
+p204
+sg71
+S'<cStringIO.StringO object>'
+p205
+sg88
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-386232a0-c520-4b9d-9cd5-4e8fe8c230b9'>"
+p206
+sS'_vars'
+p207
+S'None'
+p208
+sS'menu'
+p209
+S'[]'
+p210
+sS'flash'
+p211
+S"''"
+p212
+sS'session_new'
+p213
+S'True'
+p214
+sS'_custom_rollback'
+p215
+S'None'
+p216
+sS'session_id'
+p217
+S"'127.0.0.1-386232a0-c520-4b9d-9cd5-4e8fe8c230b9'"
+p218
+sS'headers'
+p219
+S"<Storage {'Expires': 'Tue, 31 May 2011 15:19:29 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p220
+sS'meta'
+p221
+S'<Storage {}>'
+p222
+sS'session_filename'
+p223
+S"'/home/franzejr/web2py/applications/E_Learning/se...ns/127.0.0.1-386232a0-c520-4b9d-9cd5-4e8fe8c230b9'"
+p224
+sS'postprocessing'
+p225
+S'[]'
+p226
+sS'_caller'
+p227
+S'<function <lambda>>'
+p228
+sS'_view_environment'
+p229
+S"{'A': <class 'gluon.html.A'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, 'DAL': <class 'gluon.dal.DAL'>, ...}"
+p230
+sS'session_id_name'
+p231
+S"'session_id_E_Learning'"
+p232
+sS'_custom_commit'
+p233
+S'None'
+p234
+sS'files'
+p235
+S'[]'
+p236
+sS'view'
+p237
+S"'default/index.html'"
+p238
+ssS'locals'
+p239
+(dp240
+S'polymodel'
+p241
+S'None'
+p242
+sS'sql_fields_aux'
+p243
+S"{'body': 'TEXT', 'id': 'INTEGER PRIMARY KEY AUTOINCREMENT', 'title': 'CHAR(512)'}"
+p244
+sS'TFK'
+p245
+g20
+sS'migrate'
+p246
+g214
+sS'fields'
+p247
+S"['id INTEGER PRIMARY KEY AUTOINCREMENT', 'title CHAR(512)', 'body TEXT']"
+p248
+sS'k'
+S"'category'"
+p249
+sS'tablename'
+p250
+S"'posts'"
+p251
+sS'fake_migrate'
+p252
+g93
+sS'field'
+p253
+S'<gluon.dal.Field object>'
+p254
+sS'ftype'
+p255
+S"'TEXT'"
+p256
+sS'table'
+p257
+S"<Table {'body': <gluon.dal.Field object at 0x9f2...c>, 'id': <gluon.dal.Field object at 0x9d52aac>}>"
+p258
+sS'sql_fields'
+p259
+S"{'body': 'TEXT', 'id': 'INTEGER PRIMARY KEY AUTOINCREMENT', 'title': 'CHAR(512)'}"
+p260
+sS'self'
+p261
+S'<gluon.dal.SQLiteAdapter object>'
+p262
+sssS'traceback'
+p263
+S'Traceback (most recent call last):\n  File "/home/franzejr/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/home/franzejr/web2py/applications/E_Learning/models/db.py", line 89, in <module>\n    Field(\'author\', \'users\')\n  File "/home/franzejr/web2py/gluon/dal.py", line 3431, in define_table\n    polymodel=polymodel)\n  File "/home/franzejr/web2py/gluon/dal.py", line 449, in create_table\n    (field.type, field.name)\nSyntaxError: Field: unknown field type: categories for category\n'
+p264
+s.
