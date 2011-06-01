@@ -1,0 +1,506 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p4
+sS'code'
+p5
+S'def index():\n    return dict(form=form)\n    \ndef new():\n    postform = SQLFORM(db.post)\n    if postform.accepts(request.vars,session):\n       redirect(URL(r=request, f="view", args=postform.vars.id))\n    return dict(postform=postform)\n    \n\ndef edit():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    editform = SQLFORM(db.post, post, deletable=True)\n    if editform.accepts(request.vars, session):\n        redirect(URL(r=request,f = "view",args=postid))\n    return dict(editform=editform, post=post)\n    \ndef view():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    db.comment.post.default = postid\n    commentform = SQLFORM(db.comment)\n    if commentform.accepts(request.vars, session):\n        redirect(URL(r=request, f = "view", args=postid))\n    return dict(post=post, commentform=commentform)\n        \n        \n    \n    \nresponse._vars=response._caller(index)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__hash__'
+p11
+S"<method-wrapper '__hash__' of exceptions.NameError object>"
+p12
+sS'__setattr__'
+p13
+S"<method-wrapper '__setattr__' of exceptions.NameError object>"
+p14
+sS'__reduce_ex__'
+p15
+S'<built-in method __reduce_ex__ of exceptions.NameError object>'
+p16
+sS'__getslice__'
+p17
+S"<method-wrapper '__getslice__' of exceptions.NameError object>"
+p18
+sS'__getitem__'
+p19
+S"<method-wrapper '__getitem__' of exceptions.NameError object>"
+p20
+sS'__setstate__'
+p21
+S'<built-in method __setstate__ of exceptions.NameError object>'
+p22
+sS'__reduce__'
+p23
+S'<built-in method __reduce__ of exceptions.NameError object>'
+p24
+sS'__str__'
+p25
+S"<method-wrapper '__str__' of exceptions.NameError object>"
+p26
+sS'__format__'
+p27
+S'<built-in method __format__ of exceptions.NameError object>'
+p28
+sS'__getattribute__'
+p29
+S"<method-wrapper '__getattribute__' of exceptions.NameError object>"
+p30
+sS'__class__'
+p31
+S"<type 'exceptions.NameError'>"
+p32
+sS'__unicode__'
+p33
+S'<built-in method __unicode__ of exceptions.NameError object>'
+p34
+sS'__delattr__'
+p35
+S"<method-wrapper '__delattr__' of exceptions.NameError object>"
+p36
+sS'__subclasshook__'
+p37
+S'<built-in method __subclasshook__ of type object>'
+p38
+sS'__repr__'
+p39
+S"<method-wrapper '__repr__' of exceptions.NameError object>"
+p40
+sS'args'
+p41
+S'("global name \'form\' is not defined",)'
+p42
+sS'__dict__'
+p43
+S'{}'
+p44
+sS'__sizeof__'
+p45
+S'<built-in method __sizeof__ of exceptions.NameError object>'
+p46
+sS'__doc__'
+p47
+S"'Name not found globally.'"
+p48
+sS'__init__'
+p49
+S"<method-wrapper '__init__' of exceptions.NameError object>"
+p50
+sS'__new__'
+p51
+S'<built-in method __new__ of type object>'
+p52
+ssS'evalue'
+p53
+S"global name 'form' is not defined"
+p54
+sS'request'
+p55
+(dp56
+S'function'
+p57
+S"'index'"
+p58
+sS'body'
+p59
+S'<cStringIO.StringO object>'
+p60
+sS'wsgi'
+p61
+S"<Storage {'start_response': <function <lambda> a...ip, deflate', 'PATH_INFO': '/E_Learning/posts'}}>"
+p62
+sS'extension'
+p63
+S"'html'"
+p64
+sS'vars'
+p65
+S'<Storage {}>'
+p66
+sS'cid'
+p67
+S'None'
+p68
+sS'url'
+p69
+S'<gluon.html.XML object>'
+p70
+sS'raw_extension'
+p71
+S'None'
+p72
+sg41
+S'[]'
+p73
+sS'controller'
+p74
+S"'posts'"
+p75
+sS'cookies'
+p76
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-...'127.0.0.1-23dad7cb-b091-4d73-a5e8-c79af16de874'>"
+p77
+sS'application'
+p78
+S"'E_Learning'"
+p79
+sS'ajax'
+p80
+S'False'
+p81
+sS'client'
+p82
+S"'127.0.0.1'"
+p83
+sS'env'
+p84
+S"<Storage {'wsgi_multithread': True, 'http_accept...ort': '58413', 'path_info': '/E_Learning/posts'}>"
+p85
+sS'raw_args'
+p86
+S'None'
+p87
+sS'get_vars'
+p88
+S'<Storage {}>'
+p89
+sS'folder'
+p90
+S"'/home/franzejr/web2py/applications/E_Learning/'"
+p91
+sS'now'
+p92
+S'datetime.datetime(2011, 5, 31, 12, 33, 30, 589717)'
+p93
+sS'post_vars'
+p94
+S'<Storage {}>'
+p95
+ssS'frames'
+p96
+(lp97
+(dp98
+S'file'
+p99
+S'/home/franzejr/web2py/gluon/restricted.py'
+p100
+sS'dump'
+p101
+(dp102
+S'environment'
+p103
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p104
+sS'ccode'
+p105
+S'<code object <module> at 0x9eadd10, file "/home/...cations/E_Learning/controllers/posts.py", line 1>'
+p106
+ssS'lnum'
+p107
+I188
+sS'lines'
+p108
+(dp109
+I192
+S'        # XXX Show exception in Wing IDE if running in debugger'
+p110
+sI183
+S'        if type(code) == types.CodeType:'
+p111
+sI184
+S'            ccode = code'
+p112
+sI185
+S'        else:'
+p113
+sI186
+S'            ccode = compile2(code,layer)'
+p114
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p115
+sI189
+S'    except HTTP:'
+p116
+sI190
+S'        raise'
+p117
+sI191
+S'    except Exception:'
+p118
+ssS'call'
+p119
+S"(code='def index():\\n    return dict(form=form)\\n    \\ndef...    \\n    \\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}, layer='/home/franzejr/web2py/applications/E_Learning/controllers/posts.py')"
+p120
+sS'func'
+p121
+S'restricted'
+p122
+sa(dp123
+g99
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p124
+sg101
+(dp125
+sg107
+I31
+sg108
+(dp126
+I21
+S'    post = db(db.post.id == postid).select()[0]'
+p127
+sI22
+S'    db.comment.post.default = postid'
+p128
+sI23
+S'    commentform = SQLFORM(db.comment)'
+p129
+sI24
+S'    if commentform.accepts(request.vars, session):'
+p130
+sI25
+S'        redirect(URL(r=request, f = "view", args=postid))'
+p131
+sI26
+S'    return dict(post=post, commentform=commentform)'
+p132
+sI27
+S''
+sI28
+S''
+sI29
+S''
+sI30
+S''
+ssg119
+S'()'
+p133
+sg121
+S'<module>'
+p134
+sa(dp135
+g99
+S'/home/franzejr/web2py/gluon/globals.py'
+p136
+sg101
+(dp137
+S'self'
+p138
+S'undefined'
+p139
+sS'f'
+S'<function index>'
+p140
+ssg107
+I95
+sg108
+(dp141
+I96
+S'        self._view_environment = None'
+p142
+sI97
+S'        self._custom_commit = None'
+p143
+sI98
+S'        self._custom_rollback = None'
+p144
+sI99
+S''
+sI90
+S"        self.flash = ''           # used by the default view layout"
+p145
+sI91
+S'        self.meta = Storage()     # used by web2py_ajax.html'
+p146
+sI92
+S'        self.menu = []            # used by the default view layout'
+p147
+sI93
+S'        self.files = []           # used by web2py_ajax.html'
+p148
+sI94
+S'        self._vars = None'
+p149
+sI95
+S'        self._caller = lambda f: f()'
+p150
+ssg119
+S'(f=<function index>)'
+p151
+sg121
+S'<lambda>'
+p152
+sa(dp153
+g99
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p154
+sg101
+(dp155
+S'form'
+p156
+g139
+sS'builtindict'
+p157
+S"<type 'dict'>"
+p158
+ssg107
+I2
+sg108
+(dp159
+I2
+S'    return dict(form=form)'
+p160
+sI3
+S''
+sI4
+S'def new():'
+p161
+sI5
+S'    postform = SQLFORM(db.post)'
+p162
+sI6
+S'    if postform.accepts(request.vars,session):'
+p163
+sI7
+S'       redirect(URL(r=request, f="view", args=postform.vars.id))'
+p164
+sI8
+S'    return dict(postform=postform)'
+p165
+sI9
+S''
+sI10
+S''
+sI11
+S'def edit():'
+p166
+ssg119
+S'()'
+p167
+sg121
+S'index'
+p168
+sasS'pyver'
+p169
+S'Python 2.7.1+: /usr/bin/python'
+p170
+sS'session'
+p171
+(dp172
+S'auth'
+p173
+S'None'
+p174
+ssS'etype'
+p175
+S"<type 'exceptions.NameError'>"
+p176
+sS'date'
+p177
+S'Tue May 31 12:33:30 2011'
+p178
+sS'response'
+p179
+(dp180
+S'status'
+p181
+S'200'
+p182
+sg59
+S'<cStringIO.StringO object>'
+p183
+sg76
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'>"
+p184
+sS'_vars'
+p185
+S'None'
+p186
+sS'title'
+p187
+S"'E_Learning'"
+p188
+sS'session_file'
+p189
+S"<open file '/home/franzejr/web2py/applications/E...da20020-d08d-46ab-8fa8-5484396a44f2', mode 'rb+'>"
+p190
+sS'flash'
+p191
+S"''"
+p192
+sS'_custom_rollback'
+p193
+S'None'
+p194
+sS'session_id'
+p195
+S"'127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p196
+sS'headers'
+p197
+S"<Storage {'Expires': 'Tue, 31 May 2011 15:33:30 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p198
+sS'meta'
+p199
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p200
+sS'session_filename'
+p201
+S"'/home/franzejr/web2py/applications/E_Learning/se...ns/127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p202
+sS'postprocessing'
+p203
+S'[]'
+p204
+sS'menu'
+p205
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object>, []), (<lazyT 'This App'>, False, <gluon.html.XML object>, [(<lazyT 'Controller'>, False, <gluon.html.XML object>), (<lazyT 'View'>, False, <gluon.html.XML object>), (<lazyT 'Layout'>, False, <gluon.html.XML object>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object>), (<lazyT 'DB Model'>, False, <gluon.html.XML object>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object>), (<lazyT 'Database'>, False, <gluon.html.XML object>), (<lazyT 'Errors'>, False, <gluon.html.XML object>), (<lazyT 'About'>, False, <gluon.html.XML object>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p206
+sS'_view_environment'
+p207
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p208
+sS'subtitle'
+p209
+S"<lazyT 'customize me!'>"
+p210
+sS'session_id_name'
+p211
+S"'session_id_E_Learning'"
+p212
+sS'_custom_commit'
+p213
+S'None'
+p214
+sS'_caller'
+p215
+S'<function <lambda>>'
+p216
+sS'files'
+p217
+S'[]'
+p218
+sS'view'
+p219
+S"'posts/index.html'"
+p220
+ssS'locals'
+p221
+(dp222
+ssS'traceback'
+p223
+S'Traceback (most recent call last):\n  File "/home/franzejr/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 31, in <module>\n  File "/home/franzejr/web2py/gluon/globals.py", line 95, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 2, in index\n    return dict(form=form)\nNameError: global name \'form\' is not defined\n'
+p224
+s.

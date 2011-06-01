@@ -14,8 +14,10 @@ def index():
     example action using the internationalization operator T and flash
     rendered by views/default/index.html or views/generic.html
     """
-    response.flash = T('You are successfully running web2py.')
-    return dict(message=T('Hello World'))
+    response.flash = T('Welcome to E-Le@rning! : - )')
+    message_title = T('E-Le@rning')
+    message_header = T('Your self-learn study on the web')
+    return dict(message_title=message_title,message_header=message_header)
 
 def user():
     """

@@ -1,0 +1,26 @@
+(dp1
+S'body'
+p2
+S'TEXT'
+p3
+sS'category'
+p4
+S'INTEGER REFERENCES category(id) ON DELETE CASCADE'
+p5
+sS'title'
+p6
+S'CHAR(512)'
+p7
+sS'dateline'
+p8
+S'TIMESTAMP'
+p9
+sS'user'
+p10
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p11
+sS'id'
+p12
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p13
+s.

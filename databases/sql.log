@@ -92,3 +92,5 @@ CREATE TABLE category(
     title CHAR(512)
 );
 success!
+timestamp: 2011-05-31T15:23:02.693289
+ALTER TABLE post ADD category INTEGER REFERENCES category(id) ON DELETE CASCADE;

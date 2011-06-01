@@ -1,12 +1,13 @@
 {{left_sidebar_enabled=right_sidebar_enabled=False}}
 {{extend 'layout.html'}}
 
-{{if 'message' in globals():}}
+{{if 'message_title' in globals():}}
 
-<h1>{{=message}}</h1>
+<h1>{{=message_title}}</h1>
+<h2>{{=message_header}}</h2>
 
 <hr />
-<h2>Readme</h2>
+<h2>{{=T('Features')}}</h2>
 <ul>
   <li>{{=T('You are successfully running web2py')}}</li>
   <li>{{=T('This is a copy of the scaffolding application')}}</li>

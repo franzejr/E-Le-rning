@@ -1,0 +1,857 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p4
+sS'code'
+p5
+S'def index():\n     return dict(message=T(\'Hello World\'))\n  \ndef new():\n    postform = SQLFORM(db.post)\n    if postform.accepts(request.vars,session):\n       redirect(URL(r=request, f="view", args=postform.vars.id))\n    return dict(postform=postform)\n    \n\ndef edit():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    editform = SQLFORM(db.post, post, deletable=True)\n    if editform.accepts(request.vars, session):\n        redirect(URL(r=request,f = "view",args=postid))\n    return dict(editform=editform, post=post)\n\ndef post_select():\n    f,v=request.args(0),request.args(1)\n    try: query=f and db.post[f]==v or db.post\n    except: redirect(URL(\'error\'))\n    rows=db(query)(db.post.ALL).select()\n    return dict(rows=rows)\n    \ndef view():\n    postid = request.args(0)\n    post = db(db.post.id == postid).select()[0]\n    db.comment.post.default = postid\n    commentform = SQLFORM(db.comment)\n    if commentform.accepts(request.vars, session):\n        redirect(URL(r=request, f = "view", args=postid))\n    return dict(post=post, commentform=commentform)\n        \n    \nresponse._vars=response._caller(post_select)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__module__'
+p11
+S"'pysqlite2.dbapi2'"
+p12
+sS'__getslice__'
+p13
+S"<method-wrapper '__getslice__' of OperationalError object>"
+p14
+sS'__str__'
+p15
+S"<method-wrapper '__str__' of OperationalError object>"
+p16
+sS'__reduce__'
+p17
+S'<built-in method __reduce__ of OperationalError object>'
+p18
+sS'__dict__'
+p19
+S'{}'
+p20
+sS'__sizeof__'
+p21
+S'<built-in method __sizeof__ of OperationalError object>'
+p22
+sS'__weakref__'
+p23
+S'None'
+p24
+sS'__init__'
+p25
+S"<method-wrapper '__init__' of OperationalError object>"
+p26
+sS'__setattr__'
+p27
+S"<method-wrapper '__setattr__' of OperationalError object>"
+p28
+sS'__reduce_ex__'
+p29
+S'<built-in method __reduce_ex__ of OperationalError object>'
+p30
+sS'__new__'
+p31
+S'<built-in method __new__ of type object>'
+p32
+sS'__format__'
+p33
+S'<built-in method __format__ of OperationalError object>'
+p34
+sS'__class__'
+p35
+S"<class 'pysqlite2.dbapi2.OperationalError'>"
+p36
+sS'__doc__'
+p37
+S'None'
+p38
+sS'__getitem__'
+p39
+S"<method-wrapper '__getitem__' of OperationalError object>"
+p40
+sS'__setstate__'
+p41
+S'<built-in method __setstate__ of OperationalError object>'
+p42
+sS'__getattribute__'
+p43
+S"<method-wrapper '__getattribute__' of OperationalError object>"
+p44
+sS'args'
+p45
+S'(\'near ",": syntax error\',)'
+p46
+sS'__subclasshook__'
+p47
+S'<built-in method __subclasshook__ of type object>'
+p48
+sS'__unicode__'
+p49
+S'<built-in method __unicode__ of OperationalError object>'
+p50
+sS'__delattr__'
+p51
+S"<method-wrapper '__delattr__' of OperationalError object>"
+p52
+sS'__repr__'
+p53
+S"<method-wrapper '__repr__' of OperationalError object>"
+p54
+sS'__hash__'
+p55
+S"<method-wrapper '__hash__' of OperationalError object>"
+p56
+ssS'evalue'
+p57
+S'near ",": syntax error'
+p58
+sS'request'
+p59
+(dp60
+S'function'
+p61
+S"'post_select'"
+p62
+sS'body'
+p63
+S'<cStringIO.StringO object>'
+p64
+sS'wsgi'
+p65
+S"<Storage {'start_response': <function <lambda> a...TH_INFO': '/E_Learning/posts/post_select.html'}}>"
+p66
+sS'extension'
+p67
+S"'html'"
+p68
+sS'vars'
+p69
+S'<Storage {}>'
+p70
+sS'cid'
+p71
+S'None'
+p72
+sS'url'
+p73
+S'<gluon.html.XML object>'
+p74
+sS'raw_extension'
+p75
+S"'html'"
+p76
+sg45
+S'[]'
+p77
+sS'controller'
+p78
+S"'posts'"
+p79
+sS'cookies'
+p80
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-...'127.0.0.1-23dad7cb-b091-4d73-a5e8-c79af16de874'>"
+p81
+sS'application'
+p82
+S"'E_Learning'"
+p83
+sS'ajax'
+p84
+S'False'
+p85
+sS'client'
+p86
+S"'127.0.0.1'"
+p87
+sS'env'
+p88
+S"<Storage {'wsgi_multithread': True, 'http_accept...ath_info': '/E_Learning/posts/post_select.html'}>"
+p89
+sS'raw_args'
+p90
+S'None'
+p91
+sS'get_vars'
+p92
+S'<Storage {}>'
+p93
+sS'folder'
+p94
+S"'/home/franzejr/web2py/applications/E_Learning/'"
+p95
+sS'now'
+p96
+S'datetime.datetime(2011, 5, 31, 13, 49, 28, 466295)'
+p97
+sS'post_vars'
+p98
+S'<Storage {}>'
+p99
+ssS'frames'
+p100
+(lp101
+(dp102
+S'file'
+p103
+S'/home/franzejr/web2py/gluon/restricted.py'
+p104
+sS'dump'
+p105
+(dp106
+S'environment'
+p107
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p108
+sS'ccode'
+p109
+S'<code object <module> at 0x9e77b18, file "/home/...cations/E_Learning/controllers/posts.py", line 1>'
+p110
+ssS'lnum'
+p111
+I188
+sS'lines'
+p112
+(dp113
+I192
+S'        # XXX Show exception in Wing IDE if running in debugger'
+p114
+sI183
+S'        if type(code) == types.CodeType:'
+p115
+sI184
+S'            ccode = code'
+p116
+sI185
+S'        else:'
+p117
+sI186
+S'            ccode = compile2(code,layer)'
+p118
+sI187
+S''
+sI188
+S'        exec ccode in environment'
+p119
+sI189
+S'    except HTTP:'
+p120
+sI190
+S'        raise'
+p121
+sI191
+S'    except Exception:'
+p122
+ssS'call'
+p123
+S'(code="def index():\\n     return dict(message=T(\'Hello W...   \\nresponse._vars=response._caller(post_select)\\n", environment={\'A\': <class \'gluon.html.A\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, \'CLEANUP\': <class \'gluon.validators.CLEANUP\'>, \'CODE\': <class \'gluon.html.CODE\'>, \'CRYPT\': <class \'gluon.validators.CRYPT\'>, ...}, layer=\'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py\')'
+p124
+sS'func'
+p125
+S'restricted'
+p126
+sa(dp127
+g103
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p128
+sg105
+(dp129
+sg111
+I36
+sg112
+(dp130
+I32
+S'        redirect(URL(r=request, f = "view", args=postid))'
+p131
+sI33
+S'    return dict(post=post, commentform=commentform)'
+p132
+sI34
+S''
+sI35
+S''
+sI26
+S'def view():'
+p133
+sI27
+S'    postid = request.args(0)'
+p134
+sI28
+S'    post = db(db.post.id == postid).select()[0]'
+p135
+sI29
+S'    db.comment.post.default = postid'
+p136
+sI30
+S'    commentform = SQLFORM(db.comment)'
+p137
+sI31
+S'    if commentform.accepts(request.vars, session):'
+p138
+ssg123
+S'()'
+p139
+sg125
+S'<module>'
+p140
+sa(dp141
+g103
+S'/home/franzejr/web2py/gluon/globals.py'
+p142
+sg105
+(dp143
+S'self'
+p144
+S'undefined'
+p145
+sS'f'
+S'<function post_select>'
+p146
+ssg111
+I95
+sg112
+(dp147
+I96
+S'        self._view_environment = None'
+p148
+sI97
+S'        self._custom_commit = None'
+p149
+sI98
+S'        self._custom_rollback = None'
+p150
+sI99
+S''
+sI90
+S"        self.flash = ''           # used by the default view layout"
+p151
+sI91
+S'        self.meta = Storage()     # used by web2py_ajax.html'
+p152
+sI92
+S'        self.menu = []            # used by the default view layout'
+p153
+sI93
+S'        self.files = []           # used by web2py_ajax.html'
+p154
+sI94
+S'        self._vars = None'
+p155
+sI95
+S'        self._caller = lambda f: f()'
+p156
+ssg123
+S'(f=<function post_select>)'
+p157
+sg125
+S'<lambda>'
+p158
+sa(dp159
+g103
+S'/home/franzejr/web2py/applications/E_Learning/controllers/posts.py'
+p160
+sg105
+(dp161
+S'db.post.ALL'
+p162
+S'<gluon.dal.SQLALL object>'
+p163
+sS'rows'
+p164
+g145
+sS').select'
+p165
+g145
+sS'db.post'
+p166
+S"<Table {'body': <gluon.dal.Field object at 0x9e8...c>, 'id': <gluon.dal.Field object at 0x9e842ec>}>"
+p167
+sS'global db'
+p168
+S"<DAL {'auth_permission': <Table {'ALL': <gluon.d...l.Field object at 0x9e8486c>}>, '_pool_size': 0}>"
+p169
+sS'query'
+p170
+S"<Table {'body': <gluon.dal.Field object at 0x9e8...c>, 'id': <gluon.dal.Field object at 0x9e842ec>}>"
+p171
+ssg111
+I23
+sg112
+(dp172
+I18
+S''
+sI19
+S'def post_select():'
+p173
+sI20
+S'    f,v=request.args(0),request.args(1)'
+p174
+sI21
+S'    try: query=f and db.post[f]==v or db.post'
+p175
+sI22
+S"    except: redirect(URL('error'))"
+p176
+sI23
+S'    rows=db(query)(db.post.ALL).select()'
+p177
+sI24
+S'    return dict(rows=rows)'
+p178
+sI25
+S''
+sI26
+S'def view():'
+p179
+sI27
+S'    postid = request.args(0)'
+p180
+ssg123
+S'()'
+p181
+sg125
+S'post_select'
+p182
+sa(dp183
+g103
+S'/home/franzejr/web2py/gluon/dal.py'
+p184
+sg105
+(dp185
+S'self.query'
+p186
+S'<gluon.dal.Query object>'
+p187
+sS'fields'
+p188
+S'()'
+p189
+sS'self'
+p190
+S'<gluon.dal.Set object>'
+p191
+sS'self.db._adapter.select'
+p192
+S'<bound method SQLiteAdapter.select of <gluon.dal.SQLiteAdapter object>>'
+p193
+sS'self.db._adapter'
+p194
+S'<gluon.dal.SQLiteAdapter object>'
+p195
+sS'attributes'
+p196
+g20
+sS'self.db'
+p197
+S"<DAL {'auth_permission': <Table {'ALL': <gluon.d...l.Field object at 0x9e8486c>}>, '_pool_size': 0}>"
+p198
+ssg111
+I4507
+sg112
+(dp199
+I4502
+S''
+sI4503
+S'    def count(self):'
+p200
+sI4504
+S'        return self.db._adapter.count(self.query)'
+p201
+sI4505
+S''
+sI4506
+S'    def select(self, *fields, **attributes):'
+p202
+sI4507
+S'        return self.db._adapter.select(self.query,fields,attributes)'
+p203
+sI4508
+S''
+sI4509
+S'    def delete(self):'
+p204
+sI4510
+S'        tablename=self.db._adapter.get_table(self.query)'
+p205
+sI4511
+S'        self.delete_uploaded_files()'
+p206
+ssg123
+S'(self=<gluon.dal.Set object>, *fields=(), **attributes={})'
+p207
+sg125
+S'select'
+p208
+sa(dp209
+g103
+S'/home/franzejr/web2py/gluon/dal.py'
+p210
+sg105
+(dp211
+S'rows'
+p212
+g145
+sS'response'
+p213
+S'<function response>'
+p214
+sS'sql'
+p215
+S"'SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);'"
+p216
+ssg111
+I1003
+sg112
+(dp217
+I998
+S"            (cache_model, time_expire) = attributes['cache']"
+p218
+sI999
+S"            del attributes['cache']"
+p219
+sI1000
+S"            key = self.uri + '/' + sql"
+p220
+sI1001
+S'            rows = cache_model(key, lambda: response(sql), time_expire)'
+p221
+sI1002
+S'        else:'
+p222
+sI1003
+S'            rows = response(sql)'
+p223
+sI1004
+S'        if isinstance(rows,tuple):'
+p224
+sI1005
+S'            rows = list(rows)'
+p225
+sI1006
+S"        limitby = attributes.get('limitby',None) or (0,)"
+p226
+sI1007
+S'        rows = self.rowslice(rows,limitby[0],None)'
+p227
+ssg123
+S'(self=<gluon.dal.SQLiteAdapter object>, query=<gluon.dal.Query object>, fields=(), attributes={})'
+p228
+sg125
+g208
+sa(dp229
+g103
+S'/home/franzejr/web2py/gluon/dal.py'
+p230
+sg105
+(dp231
+S'self'
+p232
+S'<gluon.dal.SQLiteAdapter object>'
+p233
+sS'self.execute'
+p234
+S'<bound method SQLiteAdapter.execute of <gluon.dal.SQLiteAdapter object>>'
+p235
+sS'sql'
+p236
+S"'SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);'"
+p237
+ssg111
+I994
+sg112
+(dp238
+I992
+S'        """'
+p239
+sI993
+S'        def response(sql):'
+p240
+sI994
+S'            self.execute(sql)'
+p241
+sI995
+S'            return self.cursor.fetchall()'
+p242
+sI996
+S'        sql = self._select(query,fields,attributes)'
+p243
+sI997
+S"        if attributes.get('cache', None):"
+p244
+sI998
+S"            (cache_model, time_expire) = attributes['cache']"
+p245
+sI989
+S'    def select(self,query,fields,attributes):'
+p246
+sI990
+S'        """'
+p247
+sI991
+S'        Always returns a Rows object, even if it may be empty'
+p248
+ssg123
+S"(sql='SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);')"
+p249
+sg125
+S'response'
+p250
+sa(dp251
+g103
+S'/home/franzejr/web2py/gluon/dal.py'
+p252
+sg105
+(dp253
+S'a'
+S"('SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);',)"
+p254
+sS'self'
+p255
+S'<gluon.dal.SQLiteAdapter object>'
+p256
+sS'b'
+g20
+sS'self.log_execute'
+p257
+S'<bound method SQLiteAdapter.log_execute of <gluon.dal.SQLiteAdapter object>>'
+p258
+ssg111
+I1067
+sg112
+(dp259
+I1062
+S'    def log_execute(self,*a,**b):'
+p260
+sI1063
+S'        self.db._lastsql = a[0]'
+p261
+sI1064
+S'        return self.cursor.execute(*a,**b)'
+p262
+sI1065
+S''
+sI1066
+S'    def execute(self,*a,**b):'
+p263
+sI1067
+S'        return self.log_execute(*a, **b)'
+p264
+sI1068
+S''
+sI1069
+S'    def represent(self, obj, fieldtype):'
+p265
+sI1070
+S'        if type(obj) in (types.LambdaType, types.FunctionType):'
+p266
+sI1071
+S'            obj = obj()'
+p267
+ssg123
+S"(self=<gluon.dal.SQLiteAdapter object>, *a=('SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);',), **b={})"
+p268
+sg125
+S'execute'
+p269
+sa(dp270
+g103
+S'/home/franzejr/web2py/gluon/dal.py'
+p271
+sg105
+(dp272
+S'a'
+S"('SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);',)"
+p273
+sS'self.cursor'
+p274
+S'<pysqlite2.dbapi2.Cursor object>'
+p275
+sS'self'
+p276
+S'<gluon.dal.SQLiteAdapter object>'
+p277
+sS'b'
+g20
+sS'self.cursor.execute'
+p278
+S'<built-in method execute of pysqlite2.dbapi2.Cursor object>'
+p279
+ssg111
+I1064
+sg112
+(dp280
+I1059
+S'    def create_sequence_and_triggers(self, query, table, **args):'
+p281
+sI1060
+S'        self.execute(query)'
+p282
+sI1061
+S''
+sI1062
+S'    def log_execute(self,*a,**b):'
+p283
+sI1063
+S'        self.db._lastsql = a[0]'
+p284
+sI1064
+S'        return self.cursor.execute(*a,**b)'
+p285
+sI1065
+S''
+sI1066
+S'    def execute(self,*a,**b):'
+p286
+sI1067
+S'        return self.log_execute(*a, **b)'
+p287
+sI1068
+S''
+ssg123
+S"(self=<gluon.dal.SQLiteAdapter object>, *a=('SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);',), **b={})"
+p288
+sg125
+S'log_execute'
+p289
+sasS'pyver'
+p290
+S'Python 2.7.1+: /usr/bin/python'
+p291
+sS'session'
+p292
+(dp293
+S'_formkey[posts_create]'
+p294
+S"'7e0acebb-095f-4c60-96c7-757782d01210'"
+p295
+sS'_formkey[comment_create]'
+p296
+S"'be81dccd-d826-4dc0-add1-0266a6a1eabc'"
+p297
+sS'_formkey[post_1]'
+p298
+S"'cfff4450-ab45-4289-9e45-952c61bd2c7b'"
+p299
+sS'auth'
+p300
+S'None'
+p301
+sS'_formkey[post_create]'
+p302
+S"'d0b344dd-5659-4fb2-a96e-3f7514051e7c'"
+p303
+ssS'etype'
+p304
+S"<class 'pysqlite2.dbapi2.OperationalError'>"
+p305
+sS'date'
+p306
+S'Tue May 31 13:49:28 2011'
+p307
+sg250
+(dp308
+S'status'
+p309
+S'200'
+p310
+sg63
+S'<cStringIO.StringO object>'
+p311
+sg80
+S"<SimpleCookie: session_id_E_Learning='127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'>"
+p312
+sS'_vars'
+p313
+S'None'
+p314
+sS'title'
+p315
+S"'E_Learning'"
+p316
+sS'session_file'
+p317
+S"<open file '/home/franzejr/web2py/applications/E...da20020-d08d-46ab-8fa8-5484396a44f2', mode 'rb+'>"
+p318
+sS'flash'
+p319
+S"''"
+p320
+sS'_custom_rollback'
+p321
+S'None'
+p322
+sS'session_id'
+p323
+S"'127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p324
+sS'headers'
+p325
+S"<Storage {'Expires': 'Tue, 31 May 2011 16:49:28 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p326
+sS'meta'
+p327
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p328
+sS'session_filename'
+p329
+S"'/home/franzejr/web2py/applications/E_Learning/se...ns/127.0.0.1-0da20020-d08d-46ab-8fa8-5484396a44f2'"
+p330
+sS'postprocessing'
+p331
+S'[]'
+p332
+sS'menu'
+p333
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object>, []), (<lazyT 'This App'>, False, <gluon.html.XML object>, [(<lazyT 'Controller'>, False, <gluon.html.XML object>), (<lazyT 'View'>, False, <gluon.html.XML object>), (<lazyT 'Layout'>, False, <gluon.html.XML object>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object>), (<lazyT 'DB Model'>, False, <gluon.html.XML object>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object>), (<lazyT 'Database'>, False, <gluon.html.XML object>), (<lazyT 'Errors'>, False, <gluon.html.XML object>), (<lazyT 'About'>, False, <gluon.html.XML object>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p334
+sS'_view_environment'
+p335
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p336
+sS'subtitle'
+p337
+S"<lazyT 'customize me!'>"
+p338
+sS'session_id_name'
+p339
+S"'session_id_E_Learning'"
+p340
+sS'_custom_commit'
+p341
+S'None'
+p342
+sS'_caller'
+p343
+S'<function <lambda>>'
+p344
+sS'files'
+p345
+S'[]'
+p346
+sS'view'
+p347
+S"'posts/post_select.html'"
+p348
+ssS'locals'
+p349
+(dp350
+S'a'
+S"('SELECT  post.id, post.user, post.title, post.bod...post.user, post.title, post.body, post.dateline);',)"
+p351
+sS'self'
+p352
+S'<gluon.dal.SQLiteAdapter object>'
+p353
+sS'b'
+g20
+sssS'traceback'
+p354
+S'Traceback (most recent call last):\n  File "/home/franzejr/web2py/gluon/restricted.py", line 188, in restricted\n    exec ccode in environment\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 36, in <module>\n  File "/home/franzejr/web2py/gluon/globals.py", line 95, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/franzejr/web2py/applications/E_Learning/controllers/posts.py", line 23, in post_select\n    rows=db(query)(db.post.ALL).select()\n  File "/home/franzejr/web2py/gluon/dal.py", line 4507, in select\n    return self.db._adapter.select(self.query,fields,attributes)\n  File "/home/franzejr/web2py/gluon/dal.py", line 1003, in select\n    rows = response(sql)\n  File "/home/franzejr/web2py/gluon/dal.py", line 994, in response\n    self.execute(sql)\n  File "/home/franzejr/web2py/gluon/dal.py", line 1067, in execute\n    return self.log_execute(*a, **b)\n  File "/home/franzejr/web2py/gluon/dal.py", line 1064, in log_execute\n    return self.cursor.execute(*a,**b)\nOperationalError: near ",": syntax error\n'
+p355
+s.
