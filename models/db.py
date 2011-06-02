@@ -75,20 +75,22 @@ crud.settings.auth = None                      # =auth to enforce authorization 
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+
+
+
 db.define_table('category',
     Field('title'),
 )
 
+
+
 db.define_table('post',
-    Field('user', db.auth_user, readable=False, writable=False),
-    Field('title'),
-    Field('category', db.category),
-    Field('body', 'text'),
+    Field('created_by', db.auth_user, default=auth.user_id, readable=False, writable=False),
+    Field('title', label=T('Title')),
+    #Field('category', db.category),
+    Field('body', 'text', label=T('Body')),
     Field('dateline', 'datetime', default=request.now,readable=False, writable=False),
 )
-
-db.post.id.readable=False
-db.post.id.writable=False
 
 db.define_table('comment',
     Field('post', db.post, readable=False, writable=False),
@@ -98,14 +100,16 @@ db.define_table('comment',
     Field('dateline',  'datetime', default=request.now, readable=False, writable=False),
 )
 
+
+
 db.define_table('user',
-                Field('auth_user', db.auth_user, readable=False, writable=False),
-                Field('age'),
+                #Field('id_user', db.auth_user, default=auth.user_id, readable=False, writable=False),
+                #Field('username', db.auth_user, default=auth.user_username),
+                Field('age',label=T('Age')),
                 Field('email'),
                 Field('aboutMe', 'text'),
                 Field('institution'),
                 Field('followers'),
                 Field('following'),
-                
                 )
 

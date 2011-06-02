@@ -147,7 +147,7 @@ html { overflow-y: scroll; }
 a:hover, a:active { outline: none; }
 
 a, a:active, a:visited { color:#607890; }
-a:hover { color:#036; }
+a:hover { color:#03333336; }
 
 ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
@@ -390,7 +390,7 @@ div.flash {
     min-width: 280px;
     opacity: 0.85;
     margin: 0px 0px 10px 10px;    
-    color: #fff;    
+    color: #fffffff;    
     vertical-align: middle;
     cursor: pointer;
     background: #000;

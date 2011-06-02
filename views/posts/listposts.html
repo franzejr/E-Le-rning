@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<h1>{{=T('Posts')}}</h1>
+
+<div align="right">
+	<h6>Options</h6>
+	<ul>
+		<li>{{=A(T('create new post'),_href=URL('post_new'))}}</li>
+		<li>{{=A(T('search post'),_href=URL('post_search'))}}</li>
+	</ul>
+</div>
+
+</br>
+
+<!--
+<div align="center">
+	{{if records:}}
+	  {{headers=dict((str(k),k.label) for k in db.post)}}
+	  {{=SQLTABLE(records,headers=headers)}}
+	{{else:}}
+	  {{=TAG.blockquote(T('No Data'))}}
+	{{pass}}
+</div> -->
+
+<div align="center">
+{{if len(records) == 0:}}
+	<h5>{{=T('No Data')}}</h5>
+{{else:}}
+	 <table>
+               <thead>
+                    <tr>
+                            <th>{{=db.post.title.label}}</th>
+                            <th>{{=db.post.body.label}}</th>
+                            <th></th>
+                    </tr>
+               </thead>
+			   {{for tupla in records:}}
+                        <tr>
+                                <td width="200px">{{=tupla.title}}</td>
+                                <td width="400px" height="100px">{{=tupla.body}}</td>
+                                <td>
+                                        <a href="view/{{=tupla.id}}">{{=T('View')}}</a> 
+                                        <a href="edit/{{=tupla.id}}">{{=T('Edit')}}</a>
+                                </td>
+                        </tr>
+                        {{pass}}
+                </table>
+        {{pass}}
+ </div>

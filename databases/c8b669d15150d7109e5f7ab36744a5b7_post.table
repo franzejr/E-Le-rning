@@ -7,20 +7,24 @@ sS'category'
 p4
 S'INTEGER REFERENCES category(id) ON DELETE CASCADE'
 p5
-sS'title'
-p6
-S'CHAR(512)'
-p7
-sS'dateline'
-p8
-S'TIMESTAMP'
-p9
 sS'user'
-p10
+p6
 S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p7
+sS'title'
+p8
+S'CHAR(512)'
+p9
+sS'dateline'
+p10
+S'TIMESTAMP'
 p11
 sS'id'
 p12
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
 p13
+sS'created_by'
+p14
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p15
 s.

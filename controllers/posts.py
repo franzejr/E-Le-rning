@@ -1,9 +1,7 @@
 def index():
-    msg = T('Welcome to the Post Controller')
-    table = request.args(0)
-    query = request.vars.query
-    records = db(query).select(db.post.ALL)
-    return dict(msg = msg, records=records)
+    redirect(URL(r=request, f="listposts"))
+  
+
 
 @auth.requires_login()  
 def new():
@@ -21,8 +19,7 @@ def edit():
         redirect(URL(r=request,f = "view",args=postid))
     return dict(editform=editform, post=post)
 
-def post_select():
-    table = request.args(0)
+def listposts():
     query = request.vars.query
     records = db(query).select(db.post.ALL)
     return dict(records=records)
