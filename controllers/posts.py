@@ -5,7 +5,7 @@ def index():
     records = db(query).select(db.post.ALL)
     return dict(msg = msg, records=records)
 
-  
+@auth.requires_login()  
 def new():
     postform = SQLFORM(db.post)
     if postform.accepts(request.vars,session):

@@ -98,3 +98,14 @@ db.define_table('comment',
     Field('dateline',  'datetime', default=request.now, readable=False, writable=False),
 )
 
+db.define_table('user',
+                Field('auth_user', db.auth_user, readable=False, writable=False),
+                Field('age'),
+                Field('email'),
+                Field('aboutMe', 'text'),
+                Field('institution'),
+                Field('followers'),
+                Field('following'),
+                
+                )
+
