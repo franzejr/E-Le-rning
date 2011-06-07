@@ -24,8 +24,11 @@ response.menu = [(T('Home'), False, URL(request.application,'default','index'), 
 
 response.menu+=[
     (T('Profile'), False, URL('profile', 'index'), [
-      (T('Edit'), False, URL('profile', 'edit'), []),
-    ]),            
+      (T('Edit'), False, URL('default', 'user/profile'), []),
+      (T('List All Profiles'), False, URL('default', 'user/profile'), []),
+      (T('Search for Users'), False, URL('profile', 'listUsers'), []),
+    ]),
+                            
     (T('Search'), False, URL('posts', 'index'), [
       (T('Posts'), False, URL('posts', 'search'),[
                                     

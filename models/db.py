@@ -27,6 +27,9 @@ else:                                         # else use a normal relational dat
 ## (more options discussed in gluon/tools.py)
 #########################################################################
 
+
+
+
 from gluon.tools import *
 mail = Mail()                                  # mailer
 auth = Auth(globals(),db)                      # authentication/authorization
@@ -39,6 +42,48 @@ mail.settings.sender = 'you@gmail.com'         # your email
 mail.settings.login = 'username:password'      # your credentials or None
 
 auth.settings.hmac_key = 'sha512:a667c7a1-8129-45c6-a7c5-397d1085dabe'   # before define_tables()
+
+##Colocando o auth_user
+
+db.define_table(
+    auth.settings.table_user_name,
+    Field('first_name', length=128, default=''),
+    Field('last_name', length=128, default=''),
+    Field('email', length=128, default='', unique=True),
+    Field('aboutMe', 'text'),
+    Field('homeTown','string'),
+    Field('currentCity','string'),
+    Field('languages','string'),
+    Field('college_University','string'),
+    Field('highSchool','string'),
+    Field('employer','string'),
+    Field('interestedIn','string'),
+    Field('phone', 'integer'),
+    Field('website','string'),
+    Field('birthday','date'),
+    Field('password', 'password', length=512,
+          readable=False, label='Password'),
+    Field('registration_key', length=512,
+          writable=False, readable=False, default=''),
+    Field('reset_password_key', length=512,
+          writable=False, readable=False, default=''),
+    Field('registration_id', length=512,
+          writable=False, readable=False, default=''),
+                )
+
+custom_auth_table = db[auth.settings.table_user_name] # get the custom_auth_table
+custom_auth_table.first_name.requires = \
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+custom_auth_table.last_name.requires = \
+  IS_NOT_EMPTY(error_message=auth.messages.is_empty)
+custom_auth_table.password.requires = [IS_STRONG(), CRYPT()]
+custom_auth_table.email.requires = [
+  IS_EMAIL(error_message=auth.messages.invalid_email),
+  IS_NOT_IN_DB(db, custom_auth_table.email)]
+
+auth.settings.table_user = custom_auth_table # tell auth to use custom_auth_table
+
+
 auth.define_tables()                           # creates all needed tables
 auth.settings.mailer = mail                    # for user email verification
 auth.settings.registration_requires_verification = False

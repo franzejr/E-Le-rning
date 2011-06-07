@@ -118,3 +118,31 @@ timestamp: 2011-06-02T15:37:29.552719
 ALTER TABLE user ADD idd INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
 timestamp: 2011-06-02T15:53:53.689186
 ALTER TABLE user ADD id_user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2011-06-06T19:21:26.364853
+ALTER TABLE auth_user ADD registration_id CHAR(512);
+timestamp: 2011-06-06T19:22:58.050965
+ALTER TABLE auth_user ADD aboutme TEXT;
+timestamp: 2011-06-06T19:28:46.376915
+ALTER TABLE auth_user ADD institution TEXT;
+timestamp: 2011-06-06T20:01:39.331250
+ALTER TABLE auth_user ADD wishareas CHAR(512);
+timestamp: 2011-06-06T20:02:41.142056
+ALTER TABLE auth_user ADD interestedin CHAR(512);
+timestamp: 2011-06-06T20:04:00.610919
+ALTER TABLE auth_user ADD hometown CHAR(512);
+timestamp: 2011-06-06T20:04:00.703534
+ALTER TABLE auth_user ADD currentcity CHAR(512);
+timestamp: 2011-06-06T20:04:22.027315
+ALTER TABLE auth_user ADD languages CHAR(512);
+timestamp: 2011-06-06T20:04:59.179299
+ALTER TABLE auth_user ADD birthday DATE;
+timestamp: 2011-06-06T20:06:41.048805
+ALTER TABLE auth_user ADD website CHAR(512);
+timestamp: 2011-06-06T20:07:47.651218
+ALTER TABLE auth_user ADD phone INTEGER;
+timestamp: 2011-06-06T20:08:54.833839
+ALTER TABLE auth_user ADD college_university CHAR(512);
+timestamp: 2011-06-06T20:09:20.266992
+ALTER TABLE auth_user ADD highschool CHAR(512);
+timestamp: 2011-06-06T20:09:40.154152
+ALTER TABLE auth_user ADD employer CHAR(512);
