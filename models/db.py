@@ -50,6 +50,7 @@ db.define_table(
     Field('first_name', length=128, default=''),
     Field('last_name', length=128, default=''),
     Field('email', length=128, default='', unique=True),
+    Field('photo', 'upload'),
     Field('aboutMe', 'text'),
     Field('homeTown','string'),
     Field('currentCity','string'),
@@ -125,14 +126,13 @@ crud.settings.auth = None                      # =auth to enforce authorization 
 
 db.define_table('category',
     Field('title'),
+    Field('About_this_category', 'text'),
 )
-
-
 
 db.define_table('post',
     Field('created_by', db.auth_user, default=auth.user_id, readable=False, writable=False),
     Field('title', label=T('Title')),
-    #Field('category', db.category),
+    Field('category', db.category, requires=IS_IN_DB(db,'category.title') ),
     Field('body', 'text', label=T('Body')),
     Field('dateline', 'datetime', default=request.now,readable=False, writable=False),
 )

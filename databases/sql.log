@@ -146,3 +146,9 @@ timestamp: 2011-06-06T20:09:20.266992
 ALTER TABLE auth_user ADD highschool CHAR(512);
 timestamp: 2011-06-06T20:09:40.154152
 ALTER TABLE auth_user ADD employer CHAR(512);
+timestamp: 2011-06-07T09:54:33.922823
+ALTER TABLE category ADD about CHAR(512);
+timestamp: 2011-06-07T09:54:55.514960
+ALTER TABLE category ADD about_this_category TEXT;
+timestamp: 2011-06-07T20:24:14.744265
+ALTER TABLE auth_user ADD photo CHAR(512);

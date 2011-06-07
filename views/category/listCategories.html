@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+<h1>{{=T('Categories')}}</h1>
+
+<div align="center">
+{{if len(records) == 0:}}
+	<h5>{{=T('No Data')}}</h5>
+{{else:}}
+	 <table>
+               <thead>
+                    <tr>
+                            <th>{{=db.category.id.label}}</th>
+                            <th>{{=db.category.title.label}}</th>
+                            <th></th>
+                    </tr>
+               </thead>
+			   {{for tupla in records:}}
+                        <tr>
+                                <td width="200px">{{=tupla.id}}</td>
+                                <td width="400px" height="100px">{{=tupla.title}}</td>
+                                <td>
+                                        <a href="view/{{=tupla.id}}">{{=T('View')}}</a> 
+                                        <a href="edit/{{=tupla.id}}">{{=T('Edit')}}</a>
+                                </td>
+                        </tr>
+                        {{pass}}
+                </table>
+        {{pass}}
+ </div>

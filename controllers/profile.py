@@ -14,7 +14,7 @@ def edit():
 
 def view():
     userid = request.args(0)
-    user = db(db.user.id == userid).select()[0]
+    user = db(db.auth_user.id == userid).select()[0]
     return dict(user=user)
 
 def listUsers():
