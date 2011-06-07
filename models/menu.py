@@ -50,7 +50,7 @@ response.menu+=[
      [(T('Followers'), False, URL('follow', 'Followers')),
       (T('Following'), False, URL('follow', 'Following')),
       ]),
-    (T('New way to Learn'), False, URL('relatorios', 'index'), [])
+    (T('New way to Learn'), False, URL('default', 'about'), [])
     ]
 
 

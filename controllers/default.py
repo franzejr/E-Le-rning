@@ -54,4 +54,9 @@ def call():
     session.forget()
     return service()
 
+def about():
+    about = T('About')
+    response.flash = T('New way to Learn!!')
+    return dict(about=about)
+
 
