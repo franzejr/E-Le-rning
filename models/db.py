@@ -146,15 +146,3 @@ db.define_table('comment',
 )
 
 
-
-db.define_table('user',
-                #Field('id_user', db.auth_user, default=auth.user_id, readable=False, writable=False),
-                #Field('username', db.auth_user, default=auth.user_username),
-                Field('age',label=T('Age')),
-                Field('email'),
-                Field('aboutMe', 'text'),
-                Field('institution'),
-                Field('followers'),
-                Field('following'),
-                )
-
