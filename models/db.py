@@ -132,7 +132,7 @@ db.define_table('category',
 db.define_table('post',
     #Field('created_by', db.auth_user, default=auth.user_id, readable=False, writable=False),
     Field('title', label=T('Title')),
-    Field('category', db.category, requires=IS_IN_DB(db, 'category.id') ),
+    Field('category', db.category, requires=IS_IN_DB(db, 'category.title') ),
     Field('body', 'text', label=T('Body')),
     Field('dateline', 'datetime', default=request.now,readable=False, writable=False),
 )
