@@ -71,7 +71,7 @@ time, mark, audio, video {
   outline:0;
   font-size:100%;
   vertical-align:baseline;
-  background:transparent;
+  background:#FFFFFF;
 }                  
 
 article, aside, details, figcaption, figure,
@@ -89,7 +89,7 @@ q:before, q:after { content:''; content:none; }
 a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
 a:hover { text-decoration: underline }
 
-ins { background-color:#ff9; color:#000; text-decoration:none; }
+ins { background-color:#ff9	; color:#000; text-decoration:none; }
 
 mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 
@@ -132,7 +132,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
  */
 
 /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
-body, select, input, textarea { color:#444; }
+body, select, input, textarea { color:#000000; }
 
 /* Headers (h1,h2,etc) have no default font-size or margin,
    you'll want to define those yourself. */ 
@@ -360,8 +360,8 @@ h6 {font-size: 0.8em;}
     padding: 5px;    
 }
 #statusbar, #footer {    
-    background: #eaeaea; 
-    border-top: 1px #aaa solid;    
+    background: #FF7F50; 
+    border-top: 1px #FF7F50 solid;    
 }
 #logo {
     width: 68px;
@@ -390,17 +390,17 @@ div.flash {
     min-width: 280px;
     opacity: 0.85;
     margin: 0px 0px 10px 10px;    
-    color: #fffffff;    
+    color: #FFFFFF;    
     vertical-align: middle;
     cursor: pointer;
-    background: #000;
+    background: #32CD32;
     border: 2px solid #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     z-index: 2;
 }
 div.error {
-    background-color: red;
+    background-color: #FF7F50;
     color: white;
     padding: 3px;
 }
