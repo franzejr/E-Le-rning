@@ -129,9 +129,44 @@
       <a href="http://www.web2py.com/" style="float: left; padding-right: 6px;">
         <img src="{{=URL('static','images/poweredby.png')}}"/>
       </a>
-      {{=T('Copyleft')}} - 2011 - Universidade Federal do Ceará               
+      {{=T('Copyleft')}} - 2011 - Universidade Federal do Ceará
+	  
+	  | {{=T('Select the Language')}}:
+	
+	
+	<a href="{{=URL(r=request,vars=dict(_language='en'))}}">English</a>
+	<a href="{{=URL(r=request,vars=dict(_language='pt-br'))}}">Português</a>
+	<a href="{{=URL(r=request,vars=dict(_language='fr-fr'))}}">Français</a>
+	<a href="{{=URL(r=request,vars=dict(_language='es-es'))}}">Español</a>
+	
+	<!--
+	<script type="text/javascript">
+		function alterarLingua(language) {
+		  var args = "?_language=" + language;
+			document.location = "{{ = str(URL(r=request)) }}" + args;
+		}
+	</script>
+	
+	
+	<select onchange="alterarLingua(this.value);">
+		<option>{{=T('Select the Language you speak')}}</option>
+	   <option value="pt-br">Português</option>
+	   <option value="fr-fr">Français</option>
+	   <option value="en">English</option>
+	   <option value="es-es">Español</option>
+	</select>
+	
+	-->
+
+
+	
+	
+	  
+	  
+	                 
       <div style="clear: both;"></div><!-- Clear the divs -->
       {{end}}
+
 
     </div><!-- footer -->           
       </div><!-- wrapper -->

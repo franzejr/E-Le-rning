@@ -59,4 +59,9 @@ def about():
     response.flash = T('New way to Learn!!')
     return dict(about=about)
 
+def alterarLingua():
+    T.force(request.vars.language)
+    redirect(request.vars.url)
+
+
 

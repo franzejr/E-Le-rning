@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 # this file is released under public domain and you can use without limitations
+T.current_languages=['en','en-us']
+if request.vars._language: session._language=request.vars._language
+if session._language: T.force(session._language)
+else: T.force(T.http_accept_language)
+
 
 #########################################################################
 ## This scaffolding model makes your app work on Google App Engine too
@@ -63,7 +68,7 @@ db.define_table(
     Field('website','string'),
     Field('birthday','date'),
     Field('password', 'password', length=512,
-          readable=False, label='Password'),
+          readable=False, label=T('Password')),
     Field('registration_key', length=512,
           writable=False, readable=False, default=''),
     Field('reset_password_key', length=512,
@@ -77,7 +82,7 @@ custom_auth_table.first_name.requires = \
   IS_NOT_EMPTY(error_message=auth.messages.is_empty)
 custom_auth_table.last_name.requires = \
   IS_NOT_EMPTY(error_message=auth.messages.is_empty)
-custom_auth_table.password.requires = [IS_STRONG(), CRYPT()]
+custom_auth_table.password.requires = [IS_NOT_EMPTY(), CRYPT()]
 custom_auth_table.email.requires = [
   IS_EMAIL(error_message=auth.messages.invalid_email),
   IS_NOT_IN_DB(db, custom_auth_table.email)]
