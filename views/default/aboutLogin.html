@@ -63,6 +63,7 @@
          
 		     
 <div align="center">
+
 	<br/>
 	
 
@@ -73,7 +74,10 @@
         </div>
       </div>
    
-      <div class="clr"></div>
+      <div class="clr">
+      	
+		
+      </div>
     </div>
   </div>
   <div class="fbg">
@@ -83,22 +87,22 @@
 		Share your knowledge!
         </div>
       <div class="col c2">
-        <h2>Find People!</h2>
-        <p>Find others person to teach each other!
+        <h2>{{=T('Find People!')}}</h2>
+        <p>{{=T('Find others person to teach each other!')}}
 		</p>
         <ul class="fbg_ul">
-          <li><a href="#">{{=T('Brazil')}}</a></li>
-          <li><a href="#">Excepteur officia deserunt.</a></li>
-          <li><a href="#">Integer tellus ipsum tempor sed.</a></li>
+     	<li><a href="#">{{=T('Brazil')}}</a></li>
+          <li><a href="#">{{=T('United States')}}</a></li>
+          <li><a href="#">{{=T('Others Countries')}}</a></li>
         </ul>
       </div>
       <div class="col c3">
         <h2><span>{{=T('Do you know everything?')}}</h2>
-        <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui.</p>
-          <span>Computer Science!</span><br />
-          <span>Culture!</span><br />
-          <span>Philosophy!</span><br />
-          <span>Everything!</span></p>
+        <p></p>
+          <span>{{=T('Computer Science!')}}</span><br />
+          <span>{{=T('Culture!')}}</span><br />
+          <span>{{=T('Philosophy!')}}</span><br />
+          <span>{{=T('Everything!')}}</span></p>
       </div>
       <div class="clr"></div>
     </div>
@@ -106,6 +110,13 @@
   <div class="footer">
     <div class="footer_resize">
       <p class="lf">{{=T('Copyleft')}} - 2011 - Universidade Federal do Ceará</p>
+	  	{{=T('Select the Language')}}:
+	
+	
+	<a href="{{=URL(r=request,vars=dict(_language='en'))}}">English</a>
+	<a href="{{=URL(r=request,vars=dict(_language='pt-br'))}}">Português</a>
+	<a href="{{=URL(r=request,vars=dict(_language='fr-fr'))}}">Français</a>
+	<a href="{{=URL(r=request,vars=dict(_language='es-es'))}}">Español</a>
       <div style="clear:both;"></div>
     </div>
   </div>
