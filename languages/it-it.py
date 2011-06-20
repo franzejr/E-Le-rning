@@ -134,6 +134,7 @@
 'Web2py': 'Web2py',
 'Welcome': 'Welcome',
 'Welcome %s': 'Benvenuto %s',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to web2py': 'Benvenuto su web2py',
 'Which called the function': 'che ha chiamato la funzione',

@@ -134,6 +134,7 @@
 'View': 'Vista',
 'Web2py': 'Web2py',
 'Welcome %s': 'Bem-vindo(a) %s',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to Gluonization': 'Bem vindo ao Web2py',
 'Welcome to web2py': 'Bem-vindo(a) ao web2py',

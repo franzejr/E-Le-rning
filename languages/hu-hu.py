@@ -130,6 +130,7 @@
 'View': 'Nézet',
 'Web2py': 'Web2py',
 'Welcome %s': 'Welcome %s',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to web2py': 'Isten hozott a web2py-ban',
 'Your self-learn study on the web': 'Your self-learn study on the web',

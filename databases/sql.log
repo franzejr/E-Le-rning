@@ -81,3 +81,12 @@ CREATE TABLE comment(
     dateline TIMESTAMP
 );
 success!
+timestamp: 2011-06-20T13:56:53.625099
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!

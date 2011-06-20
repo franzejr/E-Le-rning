@@ -121,6 +121,7 @@
 'View': 'View',
 'Web2py': 'Web2py',
 'Welcome %s': 'Welcome %s',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to web2py': 'वेब२पाइ (web2py)  में आपका स्वागत है',
 'Your self-learn study on the web': 'Your self-learn study on the web',

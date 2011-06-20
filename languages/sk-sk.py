@@ -143,6 +143,7 @@
 'Videos': 'Videos',
 'View': 'Zobraziť',
 'Web2py': 'Web2py',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to web2py': 'Vitajte vo web2py',
 'Which called the function': 'Ktorý zavolal funkciu',

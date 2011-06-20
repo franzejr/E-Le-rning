@@ -200,6 +200,7 @@
 'Views': '視圖',
 'Web2py': 'Web2py',
 'Welcome %s': '歡迎 %s',
+'Welcome to E-Le@rning': 'Welcome to E-Le@rning',
 'Welcome to E-Le@rning! : - )': 'Welcome to E-Le@rning! : - )',
 'Welcome to web2py': '歡迎使用 web2py',
 'YES': '是',
