@@ -55,18 +55,18 @@ db.define_table(
     Field('first_name', length=128, default=''),
     Field('last_name', length=128, default=''),
     Field('email', length=128, default='', unique=True),
-    Field('photo', 'upload'),
-    Field('aboutMe', 'text'),
-    Field('homeTown','string'),
-    Field('currentCity','string'),
-    Field('languages','string'),
-    Field('college_University','string'),
-    Field('highSchool','string'),
-    Field('employer','string'),
-    Field('interestedIn','string'),
-    Field('phone', 'integer'),
-    Field('website','string'),
-    Field('birthday','date'),
+    Field('photo', 'upload',label=T('Photo')),
+    Field('aboutMe', 'text',label=T('About Me')),
+    Field('homeTown','string', label=T('HomeTown')),
+    Field('currentCity','string', label=T('Current City')),
+    Field('languages','string', label=T('Languages')),
+    Field('college_University','string', label=T('College/University')),
+    Field('highSchool','string',label=T('High School')),
+    Field('employer','string', label=T('Employer')),
+    Field('interestedIn','string', label=T('Interested In')),
+    Field('phone', 'integer', label=T('Phone')),
+    Field('website','string',label=T('Website')),
+    Field('birthday','date',label=T('Birthday')),
     Field('password', 'password', length=512,
           readable=False, label=T('Password')),
     Field('registration_key', length=512,
@@ -130,8 +130,8 @@ crud.settings.auth = None                      # =auth to enforce authorization 
 
 
 db.define_table('category',
-    Field('title'),
-    Field('About_this_category', 'text'),
+    Field('title', label=T('Title')),
+    Field('About_this_category', 'text', label=T('About this Category')),
 )
 
 db.define_table('post',
@@ -149,5 +149,3 @@ db.define_table('comment',
     Field('commentbody', 'text', requires=IS_NOT_EMPTY(error_message="Please enter your comment.")),
     Field('dateline',  'datetime', default=request.now, readable=False, writable=False),
 )
-
-

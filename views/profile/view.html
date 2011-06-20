@@ -2,8 +2,15 @@
 
 <h2>{{=T('Profile')}}</h2>
 <div>
-	<img height="150" width="100" src="./../../default/download/{{=user.photo}}"></img>
-First Name:{{=user.first_name}}<br/>
-Last Name:{{=user.last_name}}<br/>
+<tr>
+<th>
+    <img height="150" width="100" src="./../../default/download/{{=user.photo}}"></img>
+    First Name:{{=user.first_name}}<br/>
+    Last Name:{{=user.last_name}}<br/>
+</th>
+
+</tr>
+<tr>
 About Me: {{=user.aboutMe}}<br/>
+</tr>
 </div>
