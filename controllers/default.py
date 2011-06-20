@@ -17,7 +17,9 @@ def index():
     response.flash = T('Welcome to E-Le@rning! : - )')
     message_title = T('E-Le@rning')
     message_header = T('Your self-learn study on the web')
-    return dict(message_title=message_title,message_header=message_header)
+    query = request.vars.query
+    records = db(query).select(db.auth_user.ALL)
+    return dict(message_title=message_title,message_header=message_header, records=records)
 
 def user():
     """

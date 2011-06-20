@@ -10,3 +10,33 @@
 <p>{{=T('Our philosophy is all about freedom. Freedom to post anything, create new categories as you wish,\ 
     help your friends improving their knowledge and find any issue of your interest, in \
     a perfect place for research and communication.')}}</p>
+    
+  
+    
+<div align="center">
+{{if len(records) == 0:}}
+	<h5>{{=T('No Data')}}</h5>
+{{else:}}
+
+	<h3>Últimas Novidades</h3>
+	 <table>
+               
+                    <tr>
+                            <th>Últimos Usuários Cadastrados</th>
+                            <th>Últimos Posts</th>
+					
+                          
+                    </tr>
+              
+			   {{for tupla in records:}}
+                        <tr>
+                           
+                                <td>{{=tupla.first_name}} - <a href="view/{{=tupla.id}}">{{=T('View')}}</a></td>
+								<td>
+                                         Posts
+                                </td>
+                        </tr>
+                        {{pass}}
+                </table>
+        {{pass}}
+ </div>
