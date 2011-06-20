@@ -8,7 +8,7 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 ## - call exposes all registered services (none by default)
 #########################################################################
-
+@auth.requires_login() 
 def index():
     """
     example action using the internationalization operator T and flash
@@ -60,10 +60,10 @@ def about():
     about = T('About')
     response.flash = T('New way to Learn!!')
     return dict(about=about)
+def aboutLogin():
+    about = T('About')
+    return dict(about=about)
 
 def alterarLingua():
     T.force(request.vars.language)
     redirect(request.vars.url)
-
-
-

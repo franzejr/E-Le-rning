@@ -203,6 +203,7 @@
 'located in the file': 'localizado no arquivo',
 'login': 'Entrar',
 'logout': 'Sair',
+'lost password': 'lost password',
 'lost password?': 'esqueceu sua senha?',
 'new record inserted': 'novo registro inserido',
 'next 100 rows': 'próximas 100 linhas',

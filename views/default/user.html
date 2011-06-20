@@ -1,16 +1,89 @@
-{{extend 'layout.html'}}
-<h2>{{=T( request.args(0).replace('_',' ').capitalize() )}}</h2>
-
-{{=form}}
-{{if request.args(0)=='login':}}
-<a href="{{=URL(args='register')}}" >register</a><br />
-<a href="{{=URL(args='request_reset_password')}}" >lost password</a><br />
-{{pass}}
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Voonte | About</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{{=URL('static','css/stylelogin.css')}}">
+<link rel="stylesheet" href="{{=URL('static','css/coin-slider.css')}}">
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+          <li><a href="{{= URL(request.application,'default','index')}}">Home</a></li>	
+          <li class="active"><a href="./../aboutLogin.html"><span>About Us</span></a></li>
+        </ul>
+      </div>
+      <div class="logo">
+        <h1><a href="index.html"><span>E-Le@rning</span></a></h1>
+      </div>
+      <div class="clr"></div>
+     
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        
+        <div class="article">
+          <h2>{{=T( request.args(0).replace('_',' ').capitalize() )}}</h2>
+          
+         
+		         {{=form}}
+				{{if request.args(0)=='login':}}
+				<a href="{{=URL(args='register')}}" >{{=T('register')}}</a><br />
+				<a href="{{=URL(args='request_reset_password')}}" >{{=T('lost password')}}</a><br />
+				{{pass}}
 <div align="center">
 	<br/>
 	
 
 <h3>{{=T('Thank you very much to use E-Le@rning! ;- )')}}</h3>
-
+          
+          
+          </div>
+        </div>
+      </div>
+   
+      <div class="clr"></div>
+    </div>
+  </div>
+   <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2>{{=T('Share')}}</h2>
+		Share your knowledge!
+        </div>
+      <div class="col c2">
+        <h2>Find People!</h2>
+        <p>Find others person to teach each other!
+		</p>
+        <ul class="fbg_ul">
+          <li><a href="#">{{=T('Brazil')}}</a></li>
+          <li><a href="#">Excepteur officia deserunt.</a></li>
+          <li><a href="#">Integer tellus ipsum tempor sed.</a></li>
+        </ul>
+      </div>
+      <div class="col c3">
+        <h2><span>{{=T('Do you know everything?')}}</h2>
+        <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui.</p>
+          <span>Computer Science:</span><br />
+          <span>Culture!</span><br />
+          <span>Philosophy!</span><br />
+          <span>Everything!</span></p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">{{=T('Copyleft')}} - 2011 - Universidade Federal do Ceará</p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
 </div>
+</body>
+</html>
