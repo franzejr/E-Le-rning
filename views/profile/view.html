@@ -1,16 +1,29 @@
 {{extend 'layout.html'}}
 
 <h2>{{=T('Profile')}}</h2>
-<div>
+<div align="left">
+
+
+
+     
+ <th>
+   <img height="150" width="100" src="./../../default/download/{{=user.photo}}"></img>
+   <tr>
+   {{=db.auth_user.first_name.label}}: {{=user.first_name}}<br/>
+   {{=db.auth_user.last_name.label}}{{=user.last_name}}<br/>
+	</tr>
+ </th>   
 <tr>
-<th>
-    <img height="150" width="100" src="./../../default/download/{{=user.photo}}"></img>
-    First Name:{{=user.first_name}}<br/>
-    Last Name:{{=user.last_name}}<br/>
-</th>
+{{=db.auth_user.aboutMe.label}}: {{=user.aboutMe}}<br/>
+{{=db.auth_user.email.label}}:{{=user.email}}<br/>
+{{=db.auth_user.currentCity.label}}:{{=user.currentCity}}<br/>
+{{=db.auth_user.interestedIn.label}}: {{=user.interestedIn}}<br/>
+{{=db.auth_user.website.label}}:{{=user.website}}<br/>
+{{=db.auth_user.languages.label}}:{{=user.languages}}<br/>
+{{=db.auth_user.birthday.label}}:{{=user.birthday}}<br/>
+
 
 </tr>
-<tr>
-About Me: {{=user.aboutMe}}<br/>
-</tr>
+    
+	
 </div>
