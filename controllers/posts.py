@@ -33,4 +33,7 @@ def view():
         redirect(URL(r=request, f = "view", args=postid))
     return dict(post=post, commentform=commentform)
         
+def search():
+    form, rows=crud.search(db.post)
+    return dict(form=form, rows=rows)
     

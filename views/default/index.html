@@ -18,22 +18,51 @@
 	<h5>{{=T('No Data')}}</h5>
 {{else:}}
 
-	<h3>Últimas Novidades</h3>
+	<h3>{{=T('Latests News')}}</h3>
 	 <table>
                
                     <tr>
-                            <th>Últimos Usuários Cadastrados</th>
-                            <th>Últimos Posts</th>
+                            <th>{{=T('Latests Users')}}</th>
 					
                           
                     </tr>
               
+
 			   {{for tupla in records:}}
                         <tr>
                            
                                 <td>{{=tupla.first_name}} - <a href="view/{{=tupla.id}}">{{=T('View')}}</a></td>
 								<td>
-                                         Posts
+                                        
+                                </td>
+                        </tr>
+                        {{pass}}
+                </table>
+        {{pass}}
+		
+		
+		
+		
+		<!--Posts-->
+{{if len(posts) == 0:}}
+	<h5>{{=T('No Data')}}</h5>
+{{else:}}
+
+		
+		 <table>
+               
+                    <tr>
+                            <th>{{=T('Latests Posts')}}</th>
+					
+                          
+                    </tr>
+              
+			   {{for x in posts:}}
+                        <tr>
+                           
+                                <td>{{=x.title}} - <a href="view/{{=x.id}}">{{=T('View')}}</a></td>
+								<td>
+                                        
                                 </td>
                         </tr>
                         {{pass}}

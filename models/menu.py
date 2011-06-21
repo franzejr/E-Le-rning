@@ -26,29 +26,23 @@ response.menu+=[
     (T('Profile'), False, URL('profile', 'index'), [
       (T('Edit'), False, URL('default', 'user/profile'), []),
       (T('List All Profiles'), False, URL('profile', 'listUsers'), []),
-      (T('Search for Users'), False, URL('profile', 'listUsers'), []),
+      (T('Search for Users'), False, URL('profile', 'search'), []),
     ]),
                             
     (T('Search'), False, URL('posts', 'index'), [
-      (T('Posts'), False, URL('posts', 'search'),[
-                                    
-        (T('By Category'), False, URL('posts', 'searchByCategory')),
-        (T('By User'), False, URL('posts', 'searchByUser')),              
-        ]),
-      (T('Users'), False, URL('users', 'search')),
+      (T('Posts'), False, URL('posts', 'search'),[]),
+      (T('Users'), False, URL('profile', 'search')),
     ]),
-    (T('Posts'), False, None,#URL('reservas', 'intranet')
+    (T('Category'), False, URL('category', 'index'), [
+      (T('Insert'), False, URL('category', 'new')),
+      (T('Edit'), False, URL('category', 'listCategories')),
+      (T('List'), False, URL('category', 'listCategories')),
+    ]),
+                
+    (T('Posts'), False, URL('posts', 'listposts'),
      [(T('Insert'), False, URL('posts', 'new')),
       (T('Edit'), False, URL('posts', 'listposts')),
       (T('List'), False, URL('posts', 'listposts'))
-      ]),
-    (T('Users'), False, None, 
-     [(T('Be Friend'), False, URL('profile', 'tt')),
-      (T('Other Thing'), False, URL('profile', 'tt'))
-      ]),
-    (T('Following'), False, None, 
-     [(T('Followers'), False, URL('follow', 'Followers')),
-      (T('Following'), False, URL('follow', 'Following')),
       ]),
     (T('New way to Learn'), False, URL('default', 'about'), [])
     ]

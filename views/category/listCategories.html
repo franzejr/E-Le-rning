@@ -8,15 +8,15 @@
 	 <table>
                <thead>
                     <tr>
-                            <th>{{=db.category.id.label}}</th>
                             <th>{{=db.category.title.label}}</th>
+                            <th>{{=db.category.About_this_category.label}}</th>
                             <th></th>
                     </tr>
                </thead>
 			   {{for tupla in records:}}
                         <tr>
-                                <td width="200px">{{=tupla.id}}</td>
-                                <td width="400px" height="100px">{{=tupla.title}}</td>
+                                <td width="200px">{{=tupla.title}}</td>
+                                <td width="400px" height="100px">{{=tupla.About_this_category}}</td>
                                 <td>
                                         <a href="view/{{=tupla.id}}">{{=T('View')}}</a> 
                                         <a href="edit/{{=tupla.id}}">{{=T('Edit')}}</a>

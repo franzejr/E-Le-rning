@@ -19,7 +19,8 @@ def index():
     message_header = T('Your self-learn study on the web')
     query = request.vars.query
     records = db(query).select(db.auth_user.ALL)
-    return dict(message_title=message_title,message_header=message_header, records=records)
+    posts = db(query).select(db.post.ALL)
+    return dict(message_title=message_title,message_header=message_header, records=records, posts=posts)
 
 def user():
     """

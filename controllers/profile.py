@@ -21,3 +21,7 @@ def listUsers():
     query = request.vars.query
     records = db(query).select(db.auth_user.ALL)
     return dict(records=records)
+
+def search():
+    form, rows=crud.search(db.auth_user)
+    return dict(form=form, rows=rows)
