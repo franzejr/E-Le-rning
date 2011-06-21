@@ -31,7 +31,7 @@
 			   {{for tupla in records:}}
                         <tr>
                            
-                                <td>{{=tupla.first_name}} - <a href="view/{{=tupla.id}}">{{=T('View')}}</a></td>
+                                <td>{{=tupla.first_name}} - <a href="{{= URL(request.application,'profile','view')}}/{{=tupla.id}}">{{=T('View')}}</a></td>
 								<td>
                                         
                                 </td>
@@ -60,7 +60,7 @@
 			   {{for x in posts:}}
                         <tr>
                            
-                                <td>{{=x.title}} - <a href="view/{{=x.id}}">{{=T('View')}}</a></td>
+                                <td>{{=x.title}} - <a href="{{= URL(request.application,'posts','view')}}/{{=x.id}}">{{=T('View')}}</a></td>
 								<td>
                                         
                                 </td>
